@@ -16,7 +16,7 @@ On OSX you can install plantuml with homebrew which puts a plantuml executable i
 
 ## Installation
 
-`pip3 install mkdocs_build_plantuml`
+`pip3 install mkdocs-build-plantuml-plugin`
 
 ## Usage
 
@@ -63,3 +63,4 @@ It is recommended to use the `server` option, which is much faster than `local`.
 
 - If you use `!include`s and the `render: "server"` option, this plugin merges those files manually. If there are any issues because of that, please open a ticket.
 - Only files are currently supported for `!include` and `render: "server"`, no urls
+- !include with server works currently only with one level, no !include in included files
