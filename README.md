@@ -1,6 +1,18 @@
-# Mkdocs Plantuml Plugin
+# Mkdocs Build Plantuml Plugin
 
-Does build you Plantuml diagrams with mkdocs serve automatically. Intend was, that I do not like inline diagrams and stumbled upon issues like non-working `!includes`.
+This plugin builds your Plantuml image files with `mkdocs serve` automatically.
+
+My intend was, that I do not like inline diagrams and stumbled upon issues like non-working `!includes`.
+
+**Note**: if you want inline diagrams in your Markdown files like
+
+````markdown
+```plantuml
+Alice -> Bob
+```
+````
+
+this is plugin is _not_ the right one. Please check out [plantuml-markdown](https://github.com/mikitex70/plantuml-markdown) which does exactly that.
 
 ## Prerequesites
 
@@ -20,26 +32,31 @@ On OSX you can install plantuml with homebrew which puts a plantuml executable i
 
 ## Usage
 
+### Plugin Settings
+
 In `mkdocs.yml` add this plugin section (depicted are the default values):
 
 ```yaml
 plugins:
   - search
   - build_plantuml:
-      render: "server"                             # "local" for local rendering
-      bin_path: `/usr/local/bin/plantuml"          # ignored when render: server
-      server: "http://www.plantuml.com/plantuml"   # offical plantuml server
-      output_format: "svg"                         # or "png"
-      diagram_root: "docs/diagrams"
+      render: "server" # or "local" for local rendering
+      bin_path: "/usr/local/bin/plantuml" # ignored when render: server
+      server: "http://www.plantuml.com/plantuml" # offical plantuml server
+      output_format: "svg" # or "png"
+      diagram_root: "docs/diagrams" # should reside under docs_dir
       output_folder: "out"
       input_folder: "src"
-
 ```
+
+It is recommended to use the `server` option, which is much faster than `local`.
+
+### Example folder structure
 
 This would result in this directory layout:
 
-```
-docs/                         # the default MkDocs docs directory
+```python
+docs/                         # the default MkDocs docs_dir directory
   diagrams/
     include/                  # for include files like theme.puml etc (optional, won't be generated)
     out/                      # the generated images, which can be included in your md files
@@ -53,11 +70,23 @@ mkdocs.yml                    # mkdocs configuration file
 
 ```
 
-When starting with `mkdocs serve`, it will create all diagrams initially. 
+When starting with `mkdocs serve`, it will create all diagrams initially.
 
-Afterwards, it checks if the `*.puml` (or other ending) file has a newer timestamp than the corresponding file in out. If so, it will generate a new image (works also with includes). This way, it won‘t take long until the site reloads.
+Afterwards, it checks if the `*.puml` (or other ending) file has a newer timestamp than the corresponding file in out. If so, it will generate a new image (works also with includes). This way, it won‘t take long until the site reloads and does not get into a loop.
 
-It is recommended to use the `server` option, which is much faster than `local`.
+### Including generated images
+
+Inside your `index.md` or any other Markdown file you can then reference any created image as usual:
+
+```markdown
+# My MkDocs Document
+
+## Example Plantuml Images
+
+![file](diagrams/out/file.svg)
+
+![file1](diagrams/out/subdir1/file1.svg)
+```
 
 ## Known restrictions
 

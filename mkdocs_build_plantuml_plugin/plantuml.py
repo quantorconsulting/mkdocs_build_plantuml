@@ -70,14 +70,14 @@ class BuildPlantumlPlugin(BasePlugin):
     diagram.inc_time = 0
     diagram.src_file = open(os.path.join(diagram.directory, diagram.file), "r")
     
-    # Go throug the file
+    # Go through the file (only relevant for server rendering)
     temp_file = ""
     for line in diagram.src_file:
       if "!include" in line:
         
         inc_file = os.path.normpath(os.path.join(diagram.directory,line[9:].rstrip()))
 
-        # Save the mtime of the inc file
+        # Save the mtime of the inc file to compare
         try:
           local_inc_time = os.path.getmtime(inc_file)
         except:
