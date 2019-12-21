@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='mkdocs-build-plantuml-plugin',
-    version='1.0.0',
+    version='1.1.0',
     description='An MkDocs plugin to call plantuml local or remote',
     long_description='',
     keywords='mkdocs plantuml publishing documentation uml sequence diagram',

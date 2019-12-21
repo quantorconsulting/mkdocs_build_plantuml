@@ -71,11 +71,21 @@ class BuildPlantumlPlugin(BasePlugin):
     diagram.src_file = open(os.path.join(diagram.directory, diagram.file), "r")
     
     # Go through the file (only relevant for server rendering)
-    temp_file = ""
-    for line in diagram.src_file:
+    temp_file = self._readFileRec(diagram.src_file, "", diagram, diagram.directory)
+    #print(temp_file)
+    try:
+      zlibbed_str = zlib.compress( temp_file.encode('utf-8') )
+      compressed_string = zlibbed_str[2:-4]
+      diagram.b64encoded = base64.b64encode(compressed_string).translate(b64_to_plantuml).decode('utf-8')
+    except:
+      diagram.b64encoded = ""
+
+  def _readFileRec(self, lines, temp_file, diagram, directory):
+    for line in lines:
       if "!include" in line:
         
-        inc_file = os.path.normpath(os.path.join(diagram.directory,line[9:].rstrip()))
+        # on the nineth position starts the filename
+        inc_file = os.path.normpath(os.path.join(directory,line[9:].rstrip()))
 
         # Save the mtime of the inc file to compare
         try:
@@ -89,21 +99,16 @@ class BuildPlantumlPlugin(BasePlugin):
         # Read contents of the included file
         try:
           with open(inc_file, "r") as inc:
-            for line_inc in inc:
-              temp_file += line_inc
+            temp_file = self._readFileRec(inc, temp_file, diagram, os.path.dirname(os.path.realpath(inc_file)))
         except:
-          temp_file = ""
+          print("Could not open " + inc_file)
 
       else:
         temp_file += line
+        if "\n" not in line:
+          temp_file += "\n"
 
-    try:
-      zlibbed_str = zlib.compress( temp_file.encode('utf-8') )
-      compressed_string = zlibbed_str[2:-4]
-      diagram.b64encoded = base64.b64encode(compressed_string).translate(b64_to_plantuml).decode('utf-8')
-    except:
-      diagram.b64encoded = ""
-
+    return temp_file
 
   def _build_out_filename(self, diagram):
     out_index = diagram.file.rfind(".")
@@ -123,6 +128,7 @@ class BuildPlantumlPlugin(BasePlugin):
       else:
         http = httplib2.Http({})
         url = self.config['server']+"/"+self.config['output_format']+"/"+diagram.b64encoded
+        print(url)
 
         try:
           response, content = http.request(url)

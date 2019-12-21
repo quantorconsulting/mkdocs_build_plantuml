@@ -1,4 +1,4 @@
-# Mkdocs Build Plantuml Plugin
+# MkDocs-Build-Plantuml-Plugin
 
 This plugin builds your Plantuml image files with `mkdocs serve` automatically.
 
@@ -90,6 +90,5 @@ Inside your `index.md` or any other Markdown file you can then reference any cre
 
 ## Known restrictions
 
-- If you use `!include`s and the `render: "server"` option, this plugin merges those files manually. If there are any issues because of that, please open a ticket.
-- Only files are currently supported for `!include` and `render: "server"`, no urls
-- !include with server works currently only with one level, no !include in included files
+- If you use `!include`s and the `render: "server"` option, this plugin merges those files manually. If there are any issues or side effects because of that, please open a ticket.
+- For `!include` only files are currently supported, no urls
