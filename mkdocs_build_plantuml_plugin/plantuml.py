@@ -83,9 +83,24 @@ class BuildPlantumlPlugin(BasePlugin):
   def _readFileRec(self, lines, temp_file, diagram, directory):
     for line in lines:
       if "!include" in line:
+        # Ignore commented lines
+        if line.startswith("'"):
+          temp_file += line
+          continue 
+
+        # If includeurl is found, we do not have to do anything here. Server 
+        # can handle that
+        if "!includeurl" in line:
+          temp_file += line
+          continue
         
         # on the nineth position starts the filename
         inc_file = os.path.normpath(os.path.join(directory,line[9:].rstrip()))
+
+        # According to plantuml, simple !include can also have urls, ignore that
+        if inc_file.startswith("http"):
+          temp_file += line
+          continue
 
         # Save the mtime of the inc file to compare
         try:

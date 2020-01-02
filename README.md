@@ -91,4 +91,3 @@ Inside your `index.md` or any other Markdown file you can then reference any cre
 ## Known restrictions
 
 - If you use `!include`s and the `render: "server"` option, this plugin merges those files manually. If there are any issues or side effects because of that, please open a ticket.
-- For `!include` only files are currently supported, no urls
