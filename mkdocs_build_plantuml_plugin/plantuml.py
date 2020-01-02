@@ -46,8 +46,14 @@ class BuildPlantumlPlugin(BasePlugin):
         diagram = PuElement(file,subdir)
         diagram.out_dir = os.path.join(os.getcwd(), self.config['diagram_root'], self.config['output_folder'],*subdir.replace(root_input,"").split("/"))
 
-        # check the outfile (.ext will be set to .png or .svg etc)
-        self._build_out_filename(diagram)
+        # Handle to read source file
+        diagram.src_file = open(os.path.join(diagram.directory, diagram.file), "r")
+        # Search for start (@startuml <filename>)
+        if not self._searchStartTag(diagram):
+          # check the outfile (.ext will be set to .png or .svg etc)
+          self._build_out_filename(diagram)
+        
+        print(diagram.out_file)
 
         # Checks mtimes for target and include files to know if we update
         self._build_mtimes(diagram)
@@ -68,7 +74,6 @@ class BuildPlantumlPlugin(BasePlugin):
 
     # Include time
     diagram.inc_time = 0
-    diagram.src_file = open(os.path.join(diagram.directory, diagram.file), "r")
     
     # Go through the file (only relevant for server rendering)
     temp_file = self._readFileRec(diagram.src_file, "", diagram, diagram.directory)
@@ -79,6 +84,17 @@ class BuildPlantumlPlugin(BasePlugin):
       diagram.b64encoded = base64.b64encode(compressed_string).translate(b64_to_plantuml).decode('utf-8')
     except:
       diagram.b64encoded = ""
+
+  def _searchStartTag(self, diagram):
+    for line in diagram.src_file:
+      line = line.rstrip()
+      if line.strip().startswith("@startuml"):
+        ws = line.find(" ")
+        if ws > 0:
+          # we look for <filename> which starts after a whitespace
+          out_filename = line[ws+1:]
+          diagram.out_file = os.path.join(diagram.out_dir, out_filename+"."+self.config["output_format"])
+          return True
 
   def _readFileRec(self, lines, temp_file, diagram, directory):
     for line in lines:
