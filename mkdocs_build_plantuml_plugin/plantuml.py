@@ -47,14 +47,14 @@ class BuildPlantumlPlugin(BasePlugin):
         diagram.out_dir = os.path.join(os.getcwd(), self.config['diagram_root'], self.config['output_folder'],*subdir.replace(root_input,"").split("/"))
 
         # Handle to read source file
-        diagram.src_file = open(os.path.join(diagram.directory, diagram.file), "r")
+        with open(os.path.join(diagram.directory, diagram.file), "r") as f:
+          diagram.src_file = f.readlines()
+        
         # Search for start (@startuml <filename>)
         if not self._searchStartTag(diagram):
           # check the outfile (.ext will be set to .png or .svg etc)
           self._build_out_filename(diagram)
         
-        print(diagram.out_file)
-
         # Checks mtimes for target and include files to know if we update
         self._build_mtimes(diagram)
 
@@ -77,7 +77,6 @@ class BuildPlantumlPlugin(BasePlugin):
     
     # Go through the file (only relevant for server rendering)
     temp_file = self._readFileRec(diagram.src_file, "", diagram, diagram.directory)
-    #print(temp_file)
     try:
       zlibbed_str = zlib.compress( temp_file.encode('utf-8') )
       compressed_string = zlibbed_str[2:-4]
@@ -97,6 +96,7 @@ class BuildPlantumlPlugin(BasePlugin):
           return True
 
   def _readFileRec(self, lines, temp_file, diagram, directory):
+
     for line in lines:
       if "!include" in line:
         # Ignore commented lines

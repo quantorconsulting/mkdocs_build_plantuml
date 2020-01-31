@@ -1,3 +1,5 @@
+![PyPI - Downloads](https://img.shields.io/pypi/dm/mkdocs-build-plantuml-plugin)
+
 # MkDocs-Build-Plantuml-Plugin
 
 This plugin builds your Plantuml image files with `mkdocs serve` automatically.
