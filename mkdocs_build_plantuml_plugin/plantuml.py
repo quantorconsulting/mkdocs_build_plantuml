@@ -111,12 +111,15 @@ class BuildPlantumlPlugin(BasePlugin):
           continue
         
         # on the nineth position starts the filename
-        inc_file = os.path.normpath(os.path.join(directory,line[9:].rstrip()))
+        inc_file = line[9:].rstrip()
 
         # According to plantuml, simple !include can also have urls, ignore that
         if inc_file.startswith("http"):
           temp_file += line
           continue
+        else:
+          # Otherwise we have to read the include file as well
+          inc_file = os.path.normpath(os.path.join(directory,inc_file))
 
         # Save the mtime of the inc file to compare
         try:
