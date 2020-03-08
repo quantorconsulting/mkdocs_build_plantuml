@@ -44,7 +44,7 @@ class BuildPlantumlPlugin(BasePlugin):
     for subdir, dirs, files in os.walk(root_input):
       for file in files:
         diagram = PuElement(file,subdir)
-        diagram.out_dir = os.path.join(os.getcwd(), self.config['diagram_root'], self.config['output_folder'],*subdir.replace(root_input,"").split("/"))
+        diagram.out_dir = os.path.join(os.getcwd(), self.config['diagram_root'], self.config['output_folder'],*subdir.replace(root_input,"").split(os.sep))
 
         # Handle to read source file
         with open(os.path.join(diagram.directory, diagram.file), "r") as f:
