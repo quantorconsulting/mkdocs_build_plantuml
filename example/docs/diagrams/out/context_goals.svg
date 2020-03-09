@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="635px" preserveAspectRatio="none" style="width:694px;height:635px;" version="1.1" viewBox="0 0 694 635" width="694px" zoomAndPan="magnify"><defs/><g><!--MD5=[ea6b7af3e51d84ddf7e64ed6d2476e03]
+cluster ms--><rect fill="#EEB291" height="230" rx="2" ry="2" style="stroke: #444444; stroke-width: 3.0; stroke-dasharray: 7.0,7.0;" width="202" x="243.5" y="201"/><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="74" x="307.5" y="218.1387">«boundary»</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="165" x="262" y="241.9639">My System Boundary</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="62" x="313.5" y="256.4043">[System]</text><!--MD5=[fb9d5e9b3b61102a7c3b6d22cea12ea4]
+entity mysystem--><rect fill="#66BCF0" height="134.5" rx="2" ry="2" style="stroke: #444444; stroke-width: 3.0;" width="170" x="259.5" y="280"/><text fill="#444444" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="83" x="303" y="306.9951">«container»</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="85" x="302" y="331.292">My System</text><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="99" x="295" y="353.7324">[Node, Angular]</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="346.5" y="375.7012"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="142" x="273.5" y="397.6699">Does really cool things</text><!--MD5=[b0dcb10635bb063d35b19b99258b98bc]
+entity personAlias--><rect fill="#66BCF0" height="110.2031" rx="2" ry="2" style="stroke: #444444; stroke-width: 3.0;" width="183" x="253" y="8"/><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="57" x="316" y="33.1387">«person»</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="65" x="312" y="56.9639">Enduser</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="346.5" y="79.4043"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="155" x="267" y="101.373">Enduser uses My System</text><!--MD5=[52479c89911cc4f53d46192264623bb0]
+entity sys_ext1--><rect fill="#B4BCBE" height="110.2031" rx="2" ry="2" style="stroke: #444444; stroke-width: 3.0;" width="143" x="6" y="514"/><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="115" x="20" y="539.1387">«external_system»</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="102" x="26.5" y="562.9639">Ext System 1</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="79.5" y="585.4043"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="40" y="607.373">Does things</text><!--MD5=[d64a74e2c04015c08c4f34d11343a809]
+entity sys_ext2--><rect fill="#B4BCBE" height="110.2031" rx="2" ry="2" style="stroke: #444444; stroke-width: 3.0;" width="143" x="184" y="514"/><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="115" x="198" y="539.1387">«external_system»</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="102" x="204.5" y="562.9639">Ext System 2</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="257.5" y="585.4043"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="218" y="607.373">Does things</text><!--MD5=[2b8a3bb43acc721390e00bf84dfc2e13]
+entity sys_ext3--><rect fill="#B4BCBE" height="110.2031" rx="2" ry="2" style="stroke: #444444; stroke-width: 3.0;" width="143" x="362" y="514"/><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="115" x="376" y="539.1387">«external_system»</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="102" x="382.5" y="562.9639">Ext System 3</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="435.5" y="585.4043"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="396" y="607.373">Does things</text><!--MD5=[29a1e2a058c4b4a61fbd046b5d7d38ff]
+entity sys_ext4--><rect fill="#B4BCBE" height="110.2031" rx="2" ry="2" style="stroke: #444444; stroke-width: 3.0;" width="143" x="540" y="514"/><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="115" x="554" y="539.1387">«external_system»</text><text fill="#444444" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="102" x="560.5" y="562.9639">Ext System 4</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="613.5" y="585.4043"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="574" y="607.373">Does things</text><!--MD5=[542d55b8f8d38f1930f65443b88d47c0]
+link personAlias to mysystem--><path d="M344.5,118.135 C344.5,161.677 344.5,223.338 344.5,271.615 " fill="none" id="personAlias-&gt;mysystem" style="stroke: #444444; stroke-width: 3.0;"/><polygon fill="#444444" points="344.5,279.853,347.5,271.853,341.5,271.853,344.5,279.853" style="stroke: #444444; stroke-width: 3.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="106" x="359.5" y="164.1387">via App or Web</text><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="126" x="349.5" y="178.1074">[REST over HTTPS]</text><!--MD5=[361f71fcde671991784bf97a046d7683]
+link mysystem to sys_ext1--><path d="M259.16,377.456 C221.081,393.508 177.657,416.484 145.5,447 C127.988,463.618 113.768,485.762 102.9452,506.56 " fill="none" id="mysystem-&gt;sys_ext1" style="stroke: #444444; stroke-width: 3.0;"/><polygon fill="#444444" points="99.259,513.849,105.5462,508.0636,100.1918,505.3561,99.259,513.849" style="stroke: #444444; stroke-width: 3.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="150.5" y="463.1387">Communicates</text><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="44" x="180" y="477.1074">[REST]</text><!--MD5=[8d77ed358511d665d2b09b6710d35d03]
+link mysystem to sys_ext2--><path d="M293.916,415.022 C287.664,425.347 281.927,436.186 277.5,447 C269.928,465.496 264.952,486.642 261.686,506.029 " fill="none" id="mysystem-&gt;sys_ext2" style="stroke: #444444; stroke-width: 3.0;"/><polygon fill="#444444" points="260.431,513.93,264.6494,506.5,258.7238,505.5583,260.431,513.93" style="stroke: #444444; stroke-width: 3.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="282.5" y="463.1387">Communicates</text><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="68" x="300" y="477.1074">[GraphQL]</text><!--MD5=[c490d96e9953f9f45bc6c1ca46fd4c09]
+link mysystem to sys_ext3--><path d="M380.1,415.13 C385.211,425.666 390.19,436.538 394.5,447 C402.258,465.833 409.491,486.812 415.569,505.943 " fill="none" id="mysystem-&gt;sys_ext3" style="stroke: #444444; stroke-width: 3.0;"/><polygon fill="#444444" points="418.014,513.734,418.4821,505.2028,412.7571,506.9986,418.014,513.734" style="stroke: #444444; stroke-width: 3.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="413.5" y="463.1387">Syncs Data</text><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="44" x="431" y="477.1074">[REST]</text><!--MD5=[7016aac8e432be8ef0044543e5662f0b]
+link mysystem to sys_ext4--><path d="M429.683,394.063 C455.17,409.39 482.447,427.574 505.5,447 C526.693,464.858 547.383,487.053 564.776,507.539 " fill="none" id="mysystem-&gt;sys_ext4" style="stroke: #444444; stroke-width: 3.0;"/><polygon fill="#444444" points="570.065,513.835,567.2165,505.7798,562.6223,509.639,570.065,513.835" style="stroke: #444444; stroke-width: 3.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="549.5" y="463.1387">Communicates</text><text fill="#444444" font-family="sans-serif" font-size="12" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="47" x="577.5" y="477.1074">[SOAP]</text><!--MD5=[e83184cfeba5cacd7282307a22a8c35b]
+@startuml
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+StereotypeFontColor #FFFFFF
+FontColor #FFFFFF
+BackgroundColor #08427B
+BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+StereotypeFontColor #FFFFFF
+FontColor #FFFFFF
+BackgroundColor #686868
+BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+StereotypeFontColor #FFFFFF
+FontColor #FFFFFF
+BackgroundColor #1168BD
+BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+StereotypeFontColor #FFFFFF
+FontColor #FFFFFF
+BackgroundColor #999999
+BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+StereotypeFontColor #FFFFFF
+FontColor #FFFFFF
+BackgroundColor #1168BD
+BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+StereotypeFontColor #FFFFFF
+FontColor #FFFFFF
+BackgroundColor #999999
+BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+
+
+
+skinparam Padding 4
+skinparam RoundCorner 4
+skinparam Shadowing false
+
+skinparam Default {
+  FontColor #444444
+  FontSize 12
+}
+
+skinparam Arrow {
+  Color #444444
+  FontColor #444444
+  FontStyle Bold
+}
+
+skinparam package {
+  FontColor #444444
+  BackgroundColor #66BCF0
+  BorderColor #444444
+}
+skinparam node {
+  FontColor #444444
+  BackgroundColor #eeb291
+  BorderColor #444444
+}
+skinparam component {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+  Style uml2
+}
+
+skinparam database {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+
+skinparam cloud {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+
+skinparam collections {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam Control {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam Boundary {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam Entity {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam interface {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam SequenceParticipantBorderThickness 3
+skinparam sequence {
+  ParticipantBackgroundColor #66BCF0
+  ParticipantBorderColor #444444
+  ParticipantFontStyle normal
+  ParticipantFontColor #444444
+  LifeLineBorderColor #444444
+  LifeLineBackgroundColor #66BCF0
+  ArrowColor #444444
+  ArrowBorderColor #444444
+  ArrowFontColor #444444
+  ArrowThickness 3
+  ActorBackgroundColor #66BCF0
+  ActorBorderColor #444444
+  ActorFontColor #444444
+}
+
+
+skinparam rectangle<<person>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam rectangle<<external_person>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #B4BCBE
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam rectangle<<system>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam rectangle<<external_system>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #B4BCBE
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam database<<system>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam database<<external_system>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #B4BCBE
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam rectangle<<boundary>> {
+  Shadowing false
+  StereotypeFontSize 0
+  BackgroundColor #eeb291
+  StereotypeFontColor #444444
+  FontColor #444444
+  BorderColor #444444
+  BorderStyle dashed
+  BorderThickness 3
+}
+skinparam rectangle<<container>> {
+  Shadowing false
+  StereotypeFontSize 14
+  BackgroundColor #66BCF0
+  StereotypeFontColor #444444
+  FontColor #444444
+  BorderColor #444444
+  BorderThickness 3
+}
+
+
+
+
+  rectangle "==Enduser\n\n Enduser uses My System" <<person>> as personAlias
+  rectangle "==My System Boundary\n<size:12>[System]</size>" <<boundary>> as ms {
+    rectangle "==My System\n//<size:12>[Node, Angular]</size>//\n\n Does really cool things" <<container>> as mysystem
+  }
+  rectangle "==Ext System 1\n\n Does things" <<external_system>> as sys_ext1
+  rectangle "==Ext System 2\n\n Does things" <<external_system>> as sys_ext2
+  rectangle "==Ext System 3\n\n Does things" <<external_system>> as sys_ext3
+  rectangle "==Ext System 4\n\n Does things" <<external_system>> as sys_ext4
+
+personAlias - ->> mysystem : **via App or Web**\n//<size:12>[REST over HTTPS]</size>//
+mysystem - ->> sys_ext1 : **Communicates**\n//<size:12>[REST]</size>//
+mysystem - ->> sys_ext2 : **Communicates**\n//<size:12>[GraphQL]</size>//
+mysystem - ->> sys_ext3 : **Syncs Data**\n//<size:12>[REST]</size>//
+mysystem - ->> sys_ext4 : **Communicates**\n//<size:12>[SOAP]</size>//
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.7.0_25-b15
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -89,7 +89,26 @@ Inside your `index.md` or any other Markdown file you can then reference any cre
 
 ![file1](diagrams/out/subdir1/file1.svg)
 ```
+## Dark Mode Support with 1.4 (prefers-color-scheme)
+
+Since Version 1.4 this plugin can support dark modewhen rendering with `server`. 
+
+**Note: Not in local mode, only server rendering mode**
+
+1. Grab a general (ie. Material Theme) dark mode support css file
+1. Enable theme support in this plugin
+1. You have to provide two puml theme files, ie mydarkmode.puml and mylightmode.puml
+1. In the out directory a <file>.<ext> will be created and additionally a <file>_dark.<ext>
+1. Insert your images in markdown with `![file](diagrams/out/file.svg#darkable)` (this selector is used in the JS file)
+1. provide `extra_avascript` file which handles the switch
+
+You can find an example in the [example folder](./example/)
+
+### Example Output
+
+![DarkMode](./swich_dark_mode.gif)
 
 ## Known restrictions
 
 - If you use `!include`s and the `render: "server"` option, this plugin merges those files manually. If there are any issues or side effects because of that, please open a ticket.
+- Dark mode / theme support is currently only available in server rendering mode.

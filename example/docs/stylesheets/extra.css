@@ -1,0 +1,22 @@
+@media only screen and (min-width: 76.25em) {
+  .md-main__inner {
+    max-width: none;
+  }
+
+  .md-sidebar--primary {
+    left: 30px;
+  }
+
+  .md-sidebar--secondary {
+    right: 10px;
+    margin-left: 0;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Lists */
+.md-typeset ol li,
+.md-typeset ul li {
+  margin-bottom: .05em;
+}

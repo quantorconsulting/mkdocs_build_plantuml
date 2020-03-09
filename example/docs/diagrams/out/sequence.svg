@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="380px" preserveAspectRatio="none" style="width:419px;height:380px;" version="1.1" viewBox="0 0 419 380" width="419px" zoomAndPan="magnify"><defs/><g><line style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="30" x2="30" y1="87.9688" y2="287.8125"/><line style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="151" x2="151" y1="87.9688" y2="287.8125"/><line style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="208" x2="208" y1="87.9688" y2="287.8125"/><line style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="263" x2="263" y1="87.9688" y2="287.8125"/><line style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="318" x2="318" y1="87.9688" y2="287.8125"/><line style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="379" x2="379" y1="87.9688" y2="287.8125"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="12" y="81.1387">Foo1</text><ellipse cx="30.5" cy="13" fill="#66BCF0" rx="8" ry="8" style="stroke: #444444; stroke-width: 2.0;"/><path d="M30.5,21 L30.5,48 M17.5,29 L43.5,29 M30.5,48 L17.5,63 M30.5,48 L43.5,63 " fill="none" style="stroke: #444444; stroke-width: 2.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="12" y="301.9512">Foo1</text><ellipse cx="30.5" cy="318.7813" fill="#66BCF0" rx="8" ry="8" style="stroke: #444444; stroke-width: 2.0;"/><path d="M30.5,326.7813 L30.5,353.7813 M17.5,334.7813 L43.5,334.7813 M30.5,353.7813 L17.5,368.7813 M30.5,353.7813 L43.5,368.7813 " fill="none" style="stroke: #444444; stroke-width: 2.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="133" y="81.1387">Foo2</text><path d="M131,38 L131,62 M131,50 L148,50 " fill="none" style="stroke: #444444; stroke-width: 2.0;"/><ellipse cx="160" cy="50" fill="#66BCF0" rx="12" ry="12" style="stroke: #444444; stroke-width: 2.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="133" y="301.9512">Foo2</text><path d="M131,312.7813 L131,336.7813 M131,324.7813 L148,324.7813 " fill="none" style="stroke: #444444; stroke-width: 2.0;"/><ellipse cx="160" cy="324.7813" fill="#66BCF0" rx="12" ry="12" style="stroke: #444444; stroke-width: 2.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="190" y="81.1387">Foo3</text><ellipse cx="208.5" cy="50" fill="#66BCF0" rx="12" ry="12" style="stroke: #444444; stroke-width: 2.0;"/><polygon fill="#444444" points="204.5,38,210.5,33,208.5,38,210.5,43,204.5,38" style="stroke: #444444; stroke-width: 1.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="190" y="301.9512">Foo3</text><ellipse cx="208.5" cy="324.7813" fill="#66BCF0" rx="12" ry="12" style="stroke: #444444; stroke-width: 2.0;"/><polygon fill="#444444" points="204.5,312.7813,210.5,307.7813,208.5,312.7813,210.5,317.7813,204.5,312.7813" style="stroke: #444444; stroke-width: 1.0;"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="245" y="81.1387">Foo4</text><ellipse cx="263.5" cy="50" fill="#66BCF0" rx="12" ry="12" style="stroke: #444444; stroke-width: 2.0;"/><line style="stroke: #444444; stroke-width: 2.0;" x1="251.5" x2="275.5" y1="64" y2="64"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="245" y="301.9512">Foo4</text><ellipse cx="263.5" cy="324.7813" fill="#66BCF0" rx="12" ry="12" style="stroke: #444444; stroke-width: 2.0;"/><line style="stroke: #444444; stroke-width: 2.0;" x1="251.5" x2="275.5" y1="338.7813" y2="338.7813"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="300" y="81.1387">Foo5</text><path d="M300.5,30 C300.5,20 318.5,20 318.5,20 C318.5,20 336.5,20 336.5,30 L336.5,56 C336.5,66 318.5,66 318.5,66 C318.5,66 300.5,66 300.5,56 L300.5,30 " fill="#66BCF0" style="stroke: #444444; stroke-width: 1.5;"/><path d="M300.5,30 C300.5,40 318.5,40 318.5,40 C318.5,40 336.5,40 336.5,30 " fill="none" style="stroke: #444444; stroke-width: 1.5;"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="300" y="301.9512">Foo5</text><path d="M300.5,318.7813 C300.5,308.7813 318.5,308.7813 318.5,308.7813 C318.5,308.7813 336.5,308.7813 336.5,318.7813 L336.5,344.7813 C336.5,354.7813 318.5,354.7813 318.5,354.7813 C318.5,354.7813 300.5,354.7813 300.5,344.7813 L300.5,318.7813 " fill="#66BCF0" style="stroke: #444444; stroke-width: 1.5;"/><path d="M300.5,318.7813 C300.5,328.7813 318.5,328.7813 318.5,328.7813 C318.5,328.7813 336.5,328.7813 336.5,318.7813 " fill="none" style="stroke: #444444; stroke-width: 1.5;"/><rect fill="#66BCF0" height="35.9688" rx="2" ry="2" style="stroke: #444444; stroke-width: 1.5;" width="53" x="355" y="47"/><rect fill="#66BCF0" height="35.9688" rx="2" ry="2" style="stroke: #444444; stroke-width: 1.5;" width="53" x="351" y="51"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="362" y="73.1387">Foo6</text><rect fill="#66BCF0" height="35.9688" rx="2" ry="2" style="stroke: #444444; stroke-width: 1.5;" width="53" x="355" y="286.8125"/><rect fill="#66BCF0" height="35.9688" rx="2" ry="2" style="stroke: #444444; stroke-width: 1.5;" width="53" x="351" y="290.8125"/><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="362" y="312.9512">Foo6</text><polygon fill="#444444" points="139.5,121.9375,149.5,125.9375,139.5,129.9375,143.5,125.9375" style="stroke: #444444; stroke-width: 1.0;"/><line style="stroke: #444444; stroke-width: 3.0;" x1="30.5" x2="145.5" y1="125.9375" y2="125.9375"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="89" x="41.5" y="117.1074">To boundary</text><polygon fill="#444444" points="196.5,157.9063,206.5,161.9063,196.5,165.9063,200.5,161.9063" style="stroke: #444444; stroke-width: 1.0;"/><line style="stroke: #444444; stroke-width: 3.0;" x1="30.5" x2="202.5" y1="161.9063" y2="161.9063"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="71" x="41.5" y="153.0762">To control</text><polygon fill="#444444" points="251.5,193.875,261.5,197.875,251.5,201.875,255.5,197.875" style="stroke: #444444; stroke-width: 1.0;"/><line style="stroke: #444444; stroke-width: 3.0;" x1="30.5" x2="257.5" y1="197.875" y2="197.875"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="63" x="41.5" y="189.0449">To entity</text><polygon fill="#444444" points="306.5,229.8438,316.5,233.8438,306.5,237.8438,310.5,233.8438" style="stroke: #444444; stroke-width: 1.0;"/><line style="stroke: #444444; stroke-width: 3.0;" x1="30.5" x2="312.5" y1="233.8438" y2="233.8438"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="89" x="41.5" y="225.0137">To database</text><polygon fill="#444444" points="367.5,265.8125,377.5,269.8125,367.5,273.8125,371.5,269.8125" style="stroke: #444444; stroke-width: 1.0;"/><line style="stroke: #444444; stroke-width: 3.0;" x1="30.5" x2="373.5" y1="269.8125" y2="269.8125"/><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="97" x="41.5" y="260.9824">To collections</text><!--MD5=[bbccb1e1c1248ecb13e605035ee57b9a]
+@startuml
+
+
+
+skinparam Padding 4
+skinparam RoundCorner 4
+skinparam Shadowing false
+
+skinparam Default {
+  FontColor #444444
+  FontSize 12
+}
+
+skinparam Arrow {
+  Color #444444
+  FontColor #444444
+  FontStyle Bold
+}
+
+skinparam package {
+  FontColor #444444
+  BackgroundColor #66BCF0
+  BorderColor #444444
+}
+skinparam node {
+  FontColor #444444
+  BackgroundColor #eeb291
+  BorderColor #444444
+}
+skinparam component {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+  Style uml2
+}
+
+skinparam database {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+
+skinparam cloud {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+
+skinparam collections {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam Control {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam Boundary {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam Entity {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam interface {
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  FontColor #444444
+}
+skinparam SequenceParticipantBorderThickness 3
+skinparam sequence {
+  ParticipantBackgroundColor #66BCF0
+  ParticipantBorderColor #444444
+  ParticipantFontStyle normal
+  ParticipantFontColor #444444
+  LifeLineBorderColor #444444
+  LifeLineBackgroundColor #66BCF0
+  ArrowColor #444444
+  ArrowBorderColor #444444
+  ArrowFontColor #444444
+  ArrowThickness 3
+  ActorBackgroundColor #66BCF0
+  ActorBorderColor #444444
+  ActorFontColor #444444
+}
+
+
+skinparam rectangle<<person>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam rectangle<<external_person>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #B4BCBE
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam rectangle<<system>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam rectangle<<external_system>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #B4BCBE
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam database<<system>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #66BCF0
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam database<<external_system>> {
+  StereotypeFontColor #444444
+  FontColor #444444
+  BackgroundColor #B4BCBE
+  BorderColor #444444
+  BorderThickness 3
+}
+
+skinparam rectangle<<boundary>> {
+  Shadowing false
+  StereotypeFontSize 0
+  BackgroundColor #eeb291
+  StereotypeFontColor #444444
+  FontColor #444444
+  BorderColor #444444
+  BorderStyle dashed
+  BorderThickness 3
+}
+skinparam rectangle<<container>> {
+  Shadowing false
+  StereotypeFontSize 14
+  BackgroundColor #66BCF0
+  StereotypeFontColor #444444
+  FontColor #444444
+  BorderColor #444444
+  BorderThickness 3
+}
+actor Foo1
+boundary Foo2
+control Foo3
+entity Foo4
+database Foo5
+collections Foo6
+Foo1 -> Foo2 : To boundary
+Foo1 -> Foo3 : To control
+Foo1 -> Foo4 : To entity
+Foo1 -> Foo5 : To database
+Foo1 -> Foo6 : To collections
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.7.0_25-b15
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

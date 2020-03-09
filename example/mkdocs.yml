@@ -1,0 +1,45 @@
+site_name: Some Specification
+repo_url: https://github.com/christo-ph/mkdocs_build_plantuml
+repo_name: "christo-ph/mkdocs_build_plantuml"
+
+theme:
+  name: "material"
+  language: "en"
+  feature:
+    tabs: false
+  logo:
+    icon: "folder_open"
+  palette:
+    primary: "light blue"
+    accent: "light blue"
+
+extra_css:
+  - "stylesheets/extra.css"
+  - "stylesheets/theme_dark.css"
+extra_javascript:
+  - "javascript/images_dark.js"
+
+nav:
+  - Example Diagram: "index.md"
+  - About:
+      - "License": "about/license.md"
+      - "Release Notes": "about/release-notes.md"
+
+plugins:
+  - search
+  - build_plantuml:
+      render: "server"
+      bin_path: "/usr/local/bin/plantuml"
+      server: "http://www.plantuml.com/plantuml"
+      output_format: "svg"
+      diagram_root: "docs/diagrams"
+      output_folder: "out"
+      input_folder: "src"
+      theme_enabled: true
+      theme_folder: "include/themes"
+      theme_light: "light.puml"
+      theme_dark: "dark.puml"
+  - exclude:
+      glob:
+        - diagrams/include/C4/*
+        
