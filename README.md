@@ -49,6 +49,7 @@ plugins:
       diagram_root: "docs/diagrams" # should reside under docs_dir
       output_folder: "out"
       input_folder: "src"
+      input_extensions: "" # comma separated list of extensions to parse, by default every file is parsed
 ```
 
 It is recommended to use the `server` option, which is much faster than `local`.
