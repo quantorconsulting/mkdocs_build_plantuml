@@ -16,11 +16,12 @@ if six.PY2:
     from string import maketrans
 else:
     maketrans = bytes.maketrans
-    
+
 
 plantuml_alphabet = string.digits + string.ascii_uppercase + string.ascii_lowercase + '-_'
 base64_alphabet   = string.ascii_uppercase + string.ascii_lowercase + string.digits + '+/'
 b64_to_plantuml = maketrans(base64_alphabet.encode('utf-8'), plantuml_alphabet.encode('utf-8'))
+
 
 class BuildPlantumlPlugin(BasePlugin):
 
@@ -32,6 +33,7 @@ class BuildPlantumlPlugin(BasePlugin):
         ('diagram_root', mkdocs.config.config_options.Type(str, default="docs/diagrams")),
         ('output_folder', mkdocs.config.config_options.Type(str, default="out")),
         ('input_folder', mkdocs.config.config_options.Type(str, default="src")),
+        ('input_extensions', mkdocs.config.config_options.Type(str, default="")),
         ('theme_enabled', mkdocs.config.config_options.Type(bool, default=False)),
         ('theme_folder', mkdocs.config.config_options.Type(str, default="include/themes/")),
         ('theme_light', mkdocs.config.config_options.Type(str, default="light.puml")),
@@ -48,34 +50,35 @@ class BuildPlantumlPlugin(BasePlugin):
     # Run throgh input folder
     for subdir, dirs, files in os.walk(root_input):
       for file in files:
-        diagram = PuElement(file,subdir)
-        diagram.out_dir = os.path.join(os.getcwd(), self.config['diagram_root'], self.config['output_folder'],*subdir.replace(root_input,"").split(os.sep))
+        if self._file_matches_extension(file):
+          diagram = PuElement(file,subdir)
+          diagram.out_dir = os.path.join(os.getcwd(), self.config['diagram_root'], self.config['output_folder'],*subdir.replace(root_input,"").split(os.sep))
 
-        # Handle to read source file
-        with open(os.path.join(diagram.directory, diagram.file), "r") as f:
-          diagram.src_file = f.readlines()
-         
-        # Search for start (@startuml <filename>)
-        if not self._searchStartTag(diagram):
-          # check the outfile (.ext will be set to .png or .svg etc)
-          self._build_out_filename(diagram)
-        
-        # Checks mtimes for target and include files to know if we update
-        self._build_mtimes(diagram)
+          # Handle to read source file
+          with open(os.path.join(diagram.directory, diagram.file), "r") as f:
+            diagram.src_file = f.readlines()
 
-        # Go through the file (only relevant for server rendering)
-        self._readFile(diagram, False)
+          # Search for start (@startuml <filename>)
+          if not self._searchStartTag(diagram):
+            # check the outfile (.ext will be set to .png or .svg etc)
+            self._build_out_filename(diagram)
 
-        # Finally convert
-        self._convert(diagram)
+          # Checks mtimes for target and include files to know if we update
+          self._build_mtimes(diagram)
 
-        # Second time (if dark mode is enabled)
-        if (self.config["theme_enabled"]):
-          # Go through the file a second time for themed option
-          self._readFile(diagram, True)
+          # Go through the file (only relevant for server rendering)
+          self._readFile(diagram, False)
 
           # Finally convert
-          self._convert(diagram, True) 
+          self._convert(diagram)
+
+          # Second time (if dark mode is enabled)
+          if (self.config["theme_enabled"]):
+            # Go through the file a second time for themed option
+            self._readFile(diagram, True)
+
+            # Finally convert
+            self._convert(diagram, True)
 
     return config
 
@@ -90,7 +93,7 @@ class BuildPlantumlPlugin(BasePlugin):
           out_filename = line[ws+1:]
           diagram.out_file = os.path.join(diagram.out_dir, out_filename+"."+self.config["output_format"])
           if (self.config["theme_enabled"]):
-            diagram.out_file_dark = os.path.join(diagram.out_dir, out_filename+"_dark."+self.config["output_format"]) 
+            diagram.out_file_dark = os.path.join(diagram.out_dir, out_filename+"_dark."+self.config["output_format"])
           return True
 
   def _build_mtimes(self, diagram):
@@ -104,13 +107,13 @@ class BuildPlantumlPlugin(BasePlugin):
       try:
         diagram.img_time_dark = os.path.getmtime(diagram.out_file_dark)
       except:
-        diagram.img_time_dark = 0 
+        diagram.img_time_dark = 0
 
     diagram.src_time = os.path.getmtime(os.path.join(diagram.directory, diagram.file))
 
     # Include time
     diagram.inc_time = 0
-    
+
 
   def _readFile(self, diagram, dark_mode):
     temp_file = self._readFileRec(diagram.src_file, "", diagram, diagram.directory, dark_mode)
@@ -122,7 +125,7 @@ class BuildPlantumlPlugin(BasePlugin):
       diagram.b64encoded = ""
 
 
-  # Reads the file recursively 
+  # Reads the file recursively
   def _readFileRec(self, lines, temp_file, diagram, directory, dark_mode):
 
     for line in lines:
@@ -136,12 +139,12 @@ class BuildPlantumlPlugin(BasePlugin):
     return temp_file
 
   def _readInclLine(self, diagram, line, temp_file, directory, dark_mode):
-    # If includeurl is found, we do not have to do anything here. Server 
+    # If includeurl is found, we do not have to do anything here. Server
     # can handle that
     if "!includeurl" in line:
       temp_file += line
       return temp_file
-    
+
     # on the nineth position starts the filename
     inc_file = line[9:].rstrip()
 
@@ -193,7 +196,7 @@ class BuildPlantumlPlugin(BasePlugin):
 
     if not dark_mode:
       if (diagram.img_time < diagram.src_time) or (diagram.inc_time > diagram.img_time):
-        
+
         print("Converting " + os.path.join(diagram.directory, diagram.file))
         if self.config['render'] == 'local':
             command = self.config["bin_path"].rsplit()
@@ -204,7 +207,7 @@ class BuildPlantumlPlugin(BasePlugin):
     # If Dark mode AND edit time of includes higher than image AND server render
     elif dark_mode and ((diagram.img_time_dark < diagram.src_time) or (diagram.inc_time > diagram.img_time_dark)) and self.config['render'] == 'server':
           self._call_server(diagram,diagram.out_file_dark)
-        
+
 
 
   def _call_server(self,diagram,out_file):
@@ -221,11 +224,23 @@ class BuildPlantumlPlugin(BasePlugin):
     else:
       if not os.path.exists(os.path.join(diagram.out_dir)):
         os.makedirs(os.path.join(diagram.out_dir))
-      
+
       out = open(os.path.join(diagram.out_dir, out_file), 'bw+')
       out.write(content)
       out.close()
-    
+
+
+  def _file_matches_extension(self, file):
+    if len(self.config['input_extensions']) == 0:
+      return True
+    extensions = self.config['input_extensions'].split(",")
+    for extension in extensions:
+      if file.endswith(extension):
+        return True
+    return False
+
+
+
 
 class PuElement:
   def __init__(self, file, subdir):
