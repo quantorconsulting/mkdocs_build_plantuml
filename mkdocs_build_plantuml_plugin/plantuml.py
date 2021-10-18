@@ -77,7 +77,7 @@ class BuildPlantumlPlugin(BasePlugin):
                 if self._file_matches_extension(file):
                     diagram = PuElement(file, subdir)
                     diagram.root_dir = root_dir
-                    diagram.out_dir = self._getOutDirectory(root_dir, subdir)
+                    diagram.out_dir = self._getOutDirectory(root_src, subdir)
 
                     # Handle to read source file
                     with open(os.path.join(diagram.directory, diagram.file), "r") as f:
