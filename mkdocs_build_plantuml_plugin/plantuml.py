@@ -321,7 +321,7 @@ class BuildPlantumlPlugin(BasePlugin):
             response, content = http.request(url)
             if response.status != 200:
                 print(
-                    "Wrong response status for " + diagram.file + ": " + response.status
+                    "Wrong response status for " + diagram.file + ": " + str(response.status)
                 )
         except Exception as e:
             print("Server error while processing " + diagram.file + ": " + str(e))
