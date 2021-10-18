@@ -211,8 +211,8 @@ class BuildPlantumlPlugin(BasePlugin):
                 self.config["theme_light"], self.config["theme_dark"]
             )
 
-        # According to plantuml, simple !include can also have urls, ignore that and continue
-        if inc_file.startswith("http"):
+        # According to plantuml, simple !include can also have urls, or use the <> format to include stdlib files, ignore that and continue
+        if inc_file.startswith("http") or inc_file.startswith("<") :
             temp_file += line
             return temp_file
 
