@@ -1,18 +1,19 @@
 @startuml
-!include ../include/C4/C4_Container.puml
+!include <C4/C4_Container>
+
 !include ../include/themes/light.puml
 
-!unquoted function Person() 
+!unquoted procedure Person()
   Person(personAlias, "Enduser", "Enduser uses My System")
 !endfunction
 
-!unquoted function BOUNDARY()
+!unquoted procedure BOUNDARY()
   System_Boundary(ms, "My System Boundary") {
     Container(mysystem, "My System", "Node, Angular", "Does really cool things")
   }
 !endfunction
 
-!unquoted function EXTSYSTEMS() 
+!unquoted procedure EXTSYSTEMS()
   System_Ext(sys_ext1, "Ext System 1", "Does things")
   System_Ext(sys_ext2, "Ext System 2", "Does things")
   System_Ext(sys_ext3, "Ext System 3", "Does things")

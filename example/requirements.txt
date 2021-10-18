@@ -1,5 +1,6 @@
 mkdocs==1.0.4
-mkdocs-build-plantuml-plugin==1.2.0
+#mkdocs-build-plantuml-plugin==1.5.0
+../
 mkdocs-exclude==1.0.2
 mkdocs-git-revision-date-localized-plugin==0.4.3
 mkdocs-material==4.6.0
@@ -8,3 +9,4 @@ mkdocs-pdf-export-plugin==0.5.5
 mkdocs-versioning==0.1.0
 pygments>=2.7.4
 pymdown-extensions==6.2
+markdown==3.1.*

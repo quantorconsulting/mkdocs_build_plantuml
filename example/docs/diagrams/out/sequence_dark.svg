@@ -1,161 +1,172 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="380px" preserveAspectRatio="none" style="width:419px;height:380px;" version="1.1" viewBox="0 0 419 380" width="419px" zoomAndPan="magnify"><defs/><g><line style="stroke: #EEEEEE; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="30" x2="30" y1="87.9688" y2="287.8125"/><line style="stroke: #EEEEEE; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="151" x2="151" y1="87.9688" y2="287.8125"/><line style="stroke: #EEEEEE; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="208" x2="208" y1="87.9688" y2="287.8125"/><line style="stroke: #EEEEEE; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="263" x2="263" y1="87.9688" y2="287.8125"/><line style="stroke: #EEEEEE; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="318" x2="318" y1="87.9688" y2="287.8125"/><line style="stroke: #EEEEEE; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="379" x2="379" y1="87.9688" y2="287.8125"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="12" y="81.1387">Foo1</text><ellipse cx="30.5" cy="13" fill="#1A618C" rx="8" ry="8" style="stroke: #EEEEEE; stroke-width: 2.0;"/><path d="M30.5,21 L30.5,48 M17.5,29 L43.5,29 M30.5,48 L17.5,63 M30.5,48 L43.5,63 " fill="none" style="stroke: #EEEEEE; stroke-width: 2.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="12" y="301.9512">Foo1</text><ellipse cx="30.5" cy="318.7813" fill="#1A618C" rx="8" ry="8" style="stroke: #EEEEEE; stroke-width: 2.0;"/><path d="M30.5,326.7813 L30.5,353.7813 M17.5,334.7813 L43.5,334.7813 M30.5,353.7813 L17.5,368.7813 M30.5,353.7813 L43.5,368.7813 " fill="none" style="stroke: #EEEEEE; stroke-width: 2.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="133" y="81.1387">Foo2</text><path d="M131,38 L131,62 M131,50 L148,50 " fill="none" style="stroke: #EEEEEE; stroke-width: 2.0;"/><ellipse cx="160" cy="50" fill="#1A618C" rx="12" ry="12" style="stroke: #EEEEEE; stroke-width: 2.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="133" y="301.9512">Foo2</text><path d="M131,312.7813 L131,336.7813 M131,324.7813 L148,324.7813 " fill="none" style="stroke: #EEEEEE; stroke-width: 2.0;"/><ellipse cx="160" cy="324.7813" fill="#1A618C" rx="12" ry="12" style="stroke: #EEEEEE; stroke-width: 2.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="190" y="81.1387">Foo3</text><ellipse cx="208.5" cy="50" fill="#1A618C" rx="12" ry="12" style="stroke: #EEEEEE; stroke-width: 2.0;"/><polygon fill="#EEEEEE" points="204.5,38,210.5,33,208.5,38,210.5,43,204.5,38" style="stroke: #EEEEEE; stroke-width: 1.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="190" y="301.9512">Foo3</text><ellipse cx="208.5" cy="324.7813" fill="#1A618C" rx="12" ry="12" style="stroke: #EEEEEE; stroke-width: 2.0;"/><polygon fill="#EEEEEE" points="204.5,312.7813,210.5,307.7813,208.5,312.7813,210.5,317.7813,204.5,312.7813" style="stroke: #EEEEEE; stroke-width: 1.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="245" y="81.1387">Foo4</text><ellipse cx="263.5" cy="50" fill="#1A618C" rx="12" ry="12" style="stroke: #EEEEEE; stroke-width: 2.0;"/><line style="stroke: #EEEEEE; stroke-width: 2.0;" x1="251.5" x2="275.5" y1="64" y2="64"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="245" y="301.9512">Foo4</text><ellipse cx="263.5" cy="324.7813" fill="#1A618C" rx="12" ry="12" style="stroke: #EEEEEE; stroke-width: 2.0;"/><line style="stroke: #EEEEEE; stroke-width: 2.0;" x1="251.5" x2="275.5" y1="338.7813" y2="338.7813"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="300" y="81.1387">Foo5</text><path d="M300.5,30 C300.5,20 318.5,20 318.5,20 C318.5,20 336.5,20 336.5,30 L336.5,56 C336.5,66 318.5,66 318.5,66 C318.5,66 300.5,66 300.5,56 L300.5,30 " fill="#1A618C" style="stroke: #EEEEEE; stroke-width: 1.5;"/><path d="M300.5,30 C300.5,40 318.5,40 318.5,40 C318.5,40 336.5,40 336.5,30 " fill="none" style="stroke: #EEEEEE; stroke-width: 1.5;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="300" y="301.9512">Foo5</text><path d="M300.5,318.7813 C300.5,308.7813 318.5,308.7813 318.5,308.7813 C318.5,308.7813 336.5,308.7813 336.5,318.7813 L336.5,344.7813 C336.5,354.7813 318.5,354.7813 318.5,354.7813 C318.5,354.7813 300.5,354.7813 300.5,344.7813 L300.5,318.7813 " fill="#1A618C" style="stroke: #EEEEEE; stroke-width: 1.5;"/><path d="M300.5,318.7813 C300.5,328.7813 318.5,328.7813 318.5,328.7813 C318.5,328.7813 336.5,328.7813 336.5,318.7813 " fill="none" style="stroke: #EEEEEE; stroke-width: 1.5;"/><rect fill="#1A618C" height="35.9688" rx="2" ry="2" style="stroke: #EEEEEE; stroke-width: 1.5;" width="53" x="355" y="47"/><rect fill="#1A618C" height="35.9688" rx="2" ry="2" style="stroke: #EEEEEE; stroke-width: 1.5;" width="53" x="351" y="51"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="362" y="73.1387">Foo6</text><rect fill="#1A618C" height="35.9688" rx="2" ry="2" style="stroke: #EEEEEE; stroke-width: 1.5;" width="53" x="355" y="286.8125"/><rect fill="#1A618C" height="35.9688" rx="2" ry="2" style="stroke: #EEEEEE; stroke-width: 1.5;" width="53" x="351" y="290.8125"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="362" y="312.9512">Foo6</text><polygon fill="#EEEEEE" points="139.5,121.9375,149.5,125.9375,139.5,129.9375,143.5,125.9375" style="stroke: #EEEEEE; stroke-width: 1.0;"/><line style="stroke: #EEEEEE; stroke-width: 3.0;" x1="30.5" x2="145.5" y1="125.9375" y2="125.9375"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="89" x="41.5" y="117.1074">To boundary</text><polygon fill="#EEEEEE" points="196.5,157.9063,206.5,161.9063,196.5,165.9063,200.5,161.9063" style="stroke: #EEEEEE; stroke-width: 1.0;"/><line style="stroke: #EEEEEE; stroke-width: 3.0;" x1="30.5" x2="202.5" y1="161.9063" y2="161.9063"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="71" x="41.5" y="153.0762">To control</text><polygon fill="#EEEEEE" points="251.5,193.875,261.5,197.875,251.5,201.875,255.5,197.875" style="stroke: #EEEEEE; stroke-width: 1.0;"/><line style="stroke: #EEEEEE; stroke-width: 3.0;" x1="30.5" x2="257.5" y1="197.875" y2="197.875"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="63" x="41.5" y="189.0449">To entity</text><polygon fill="#EEEEEE" points="306.5,229.8438,316.5,233.8438,306.5,237.8438,310.5,233.8438" style="stroke: #EEEEEE; stroke-width: 1.0;"/><line style="stroke: #EEEEEE; stroke-width: 3.0;" x1="30.5" x2="312.5" y1="233.8438" y2="233.8438"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="89" x="41.5" y="225.0137">To database</text><polygon fill="#EEEEEE" points="367.5,265.8125,377.5,269.8125,367.5,273.8125,371.5,269.8125" style="stroke: #EEEEEE; stroke-width: 1.0;"/><line style="stroke: #EEEEEE; stroke-width: 3.0;" x1="30.5" x2="373.5" y1="269.8125" y2="269.8125"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="97" x="41.5" y="260.9824">To collections</text><!--MD5=[99f88c0c65a86db843f5df2f1b530e32]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="377px" preserveAspectRatio="none" style="width:413px;height:377px;background:#FFFFFF;" version="1.1" viewBox="0 0 413 377" width="413px" zoomAndPan="magnify"><defs/><g><line style="stroke:#EEEEEE;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="27" x2="27" y1="89.9688" y2="289.8125"/><line style="stroke:#EEEEEE;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="150.5" x2="150.5" y1="89.9688" y2="289.8125"/><line style="stroke:#EEEEEE;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="207.5" x2="207.5" y1="89.9688" y2="289.8125"/><line style="stroke:#EEEEEE;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="262.5" x2="262.5" y1="89.9688" y2="289.8125"/><line style="stroke:#EEEEEE;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="317.5" x2="317.5" y1="89.9688" y2="289.8125"/><line style="stroke:#EEEEEE;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="378.5" x2="378.5" y1="89.9688" y2="289.8125"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="30" x="9" y="83.1387">Foo1</text><ellipse cx="27" cy="15" fill="#1A618C" rx="8" ry="8" style="stroke:#EEEEEE;stroke-width:2.0;"/><path d="M27,23 L27,50 M14,31 L40,31 M27,50 L14,65 M27,50 L40,65 " fill="none" style="stroke:#EEEEEE;stroke-width:2.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="30" x="9" y="303.9512">Foo1</text><ellipse cx="27" cy="320.7813" fill="#1A618C" rx="8" ry="8" style="stroke:#EEEEEE;stroke-width:2.0;"/><path d="M27,328.7813 L27,355.7813 M14,336.7813 L40,336.7813 M27,355.7813 L14,370.7813 M27,355.7813 L40,370.7813 " fill="none" style="stroke:#EEEEEE;stroke-width:2.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="132.5" y="83.1387">Foo2</text><path d="M130.5,40 L130.5,64 M130.5,52 L147.5,52 " fill="none" style="stroke:#EEEEEE;stroke-width:2.0;"/><ellipse cx="159.5" cy="52" fill="#1A618C" rx="12" ry="12" style="stroke:#EEEEEE;stroke-width:2.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="132.5" y="303.9512">Foo2</text><path d="M130.5,314.7813 L130.5,338.7813 M130.5,326.7813 L147.5,326.7813 " fill="none" style="stroke:#EEEEEE;stroke-width:2.0;"/><ellipse cx="159.5" cy="326.7813" fill="#1A618C" rx="12" ry="12" style="stroke:#EEEEEE;stroke-width:2.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="189.5" y="83.1387">Foo3</text><ellipse cx="208" cy="52" fill="#1A618C" rx="12" ry="12" style="stroke:#EEEEEE;stroke-width:2.0;"/><polygon fill="#EEEEEE" points="204,40,210,35,208,40,210,45,204,40" style="stroke:#EEEEEE;stroke-width:1.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="189.5" y="303.9512">Foo3</text><ellipse cx="208" cy="326.7813" fill="#1A618C" rx="12" ry="12" style="stroke:#EEEEEE;stroke-width:2.0;"/><polygon fill="#EEEEEE" points="204,314.7813,210,309.7813,208,314.7813,210,319.7813,204,314.7813" style="stroke:#EEEEEE;stroke-width:1.0;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="244.5" y="83.1387">Foo4</text><ellipse cx="263" cy="52" fill="#1A618C" rx="12" ry="12" style="stroke:#EEEEEE;stroke-width:2.0;"/><line style="stroke:#EEEEEE;stroke-width:2.0;" x1="251" x2="275" y1="66" y2="66"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="244.5" y="303.9512">Foo4</text><ellipse cx="263" cy="326.7813" fill="#1A618C" rx="12" ry="12" style="stroke:#EEEEEE;stroke-width:2.0;"/><line style="stroke:#EEEEEE;stroke-width:2.0;" x1="251" x2="275" y1="340.7813" y2="340.7813"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="299.5" y="83.1387">Foo5</text><path d="M300,32 C300,22 318,22 318,22 C318,22 336,22 336,32 L336,58 C336,68 318,68 318,68 C318,68 300,68 300,58 L300,32 " fill="#1A618C" style="stroke:#EEEEEE;stroke-width:1.5;"/><path d="M300,32 C300,42 318,42 318,42 C318,42 336,42 336,32 " fill="none" style="stroke:#EEEEEE;stroke-width:1.5;"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="299.5" y="303.9512">Foo5</text><path d="M300,320.7813 C300,310.7813 318,310.7813 318,310.7813 C318,310.7813 336,310.7813 336,320.7813 L336,346.7813 C336,356.7813 318,356.7813 318,356.7813 C318,356.7813 300,356.7813 300,346.7813 L300,320.7813 " fill="#1A618C" style="stroke:#EEEEEE;stroke-width:1.5;"/><path d="M300,320.7813 C300,330.7813 318,330.7813 318,330.7813 C318,330.7813 336,330.7813 336,320.7813 " fill="none" style="stroke:#EEEEEE;stroke-width:1.5;"/><rect fill="#1A618C" height="35.9688" rx="2" ry="2" style="stroke:#EEEEEE;stroke-width:1.5;" width="53" x="354.5" y="49"/><rect fill="#1A618C" height="35.9688" rx="2" ry="2" style="stroke:#EEEEEE;stroke-width:1.5;" width="53" x="350.5" y="53"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="361.5" y="75.1387">Foo6</text><rect fill="#1A618C" height="35.9688" rx="2" ry="2" style="stroke:#EEEEEE;stroke-width:1.5;" width="53" x="354.5" y="288.8125"/><rect fill="#1A618C" height="35.9688" rx="2" ry="2" style="stroke:#EEEEEE;stroke-width:1.5;" width="53" x="350.5" y="292.8125"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="31" x="361.5" y="314.9512">Foo6</text><polygon fill="#EEEEEE" points="139,123.9375,149,127.9375,139,131.9375,143,127.9375" style="stroke:#EEEEEE;stroke-width:1.0;"/><line style="stroke:#EEEEEE;stroke-width:3.0;" x1="27" x2="145" y1="127.9375" y2="127.9375"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="92" x="38" y="119.1074">To boundary</text><polygon fill="#EEEEEE" points="196,159.9063,206,163.9063,196,167.9063,200,163.9063" style="stroke:#EEEEEE;stroke-width:1.0;"/><line style="stroke:#EEEEEE;stroke-width:3.0;" x1="27" x2="202" y1="163.9063" y2="163.9063"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="76" x="38" y="155.0762">To control</text><polygon fill="#EEEEEE" points="251,195.875,261,199.875,251,203.875,255,199.875" style="stroke:#EEEEEE;stroke-width:1.0;"/><line style="stroke:#EEEEEE;stroke-width:3.0;" x1="27" x2="257" y1="199.875" y2="199.875"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="67" x="38" y="191.0449">To entity</text><polygon fill="#EEEEEE" points="306,231.8438,316,235.8438,306,239.8438,310,235.8438" style="stroke:#EEEEEE;stroke-width:1.0;"/><line style="stroke:#EEEEEE;stroke-width:3.0;" x1="27" x2="312" y1="235.8438" y2="235.8438"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="92" x="38" y="227.0137">To database</text><polygon fill="#EEEEEE" points="367,267.8125,377,271.8125,367,275.8125,371,271.8125" style="stroke:#EEEEEE;stroke-width:1.0;"/><line style="stroke:#EEEEEE;stroke-width:3.0;" x1="27" x2="373" y1="271.8125" y2="271.8125"/><text fill="#EEEEEE" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="102" x="38" y="262.9824">To collections</text><!--MD5=[cb505780d6c09bfd921d25ed8525f4e1]
 @startuml
+!define BG_MAIN_COLOR      #1A618C
+!define BG_SECONDARY_COLOR #616768
+!define BG_PACKAGE_COLOR   #7a209f
+!define BORDER_COLOR       #EEEEEE
+!define FONT_COLOR         #EEEEEE
 
 
+' include the general skinparams for both, light and dark
+' to overwrite with the given settings
+!define BORDER_THICKNESS 3
 
 skinparam Padding 4
 skinparam RoundCorner 4
 skinparam Shadowing false
 
 skinparam Default {
-  FontColor #EEEEEE
-  FontSize 12
+'FontName "Open Sans Semibold"
+FontColor FONT_COLOR
+FontSize 12
 }
 
 skinparam Arrow {
-  Color #EEEEEE
-  FontColor #EEEEEE
-  FontStyle Bold
+Color FONT_COLOR
+FontColor FONT_COLOR
+FontStyle Bold
 }
 
 skinparam package {
-  FontColor #EEEEEE
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
+FontColor FONT_COLOR
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
 }
 skinparam node {
-  FontColor #EEEEEE
-  BackgroundColor #7a209f
-  BorderColor #EEEEEE
+FontColor FONT_COLOR
+BackgroundColor BG_PACKAGE_COLOR
+BorderColor BORDER_COLOR
 }
 skinparam component {
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  FontColor #EEEEEE
-  Style uml2
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+FontColor FONT_COLOR
+Style uml2
 }
 
 skinparam database {
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  FontColor #EEEEEE
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+FontColor FONT_COLOR
 }
 
 skinparam cloud {
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  FontColor #EEEEEE
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+FontColor FONT_COLOR
 }
 
 skinparam collections {
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  FontColor #EEEEEE
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+FontColor FONT_COLOR
 }
 skinparam Control {
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  FontColor #EEEEEE
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+FontColor FONT_COLOR
 }
 skinparam Boundary {
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  FontColor #EEEEEE
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+FontColor FONT_COLOR
 }
 skinparam Entity {
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  FontColor #EEEEEE
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+FontColor FONT_COLOR
 }
 skinparam interface {
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  FontColor #EEEEEE
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+FontColor FONT_COLOR
 }
 skinparam SequenceParticipantBorderThickness 3
 skinparam sequence {
-  ParticipantBackgroundColor #1A618C
-  ParticipantBorderColor #EEEEEE
-  ParticipantFontStyle normal
-  ParticipantFontColor #EEEEEE
-  LifeLineBorderColor #EEEEEE
-  LifeLineBackgroundColor #1A618C
-  ArrowColor #EEEEEE
-  ArrowBorderColor #EEEEEE
-  ArrowFontColor #EEEEEE
-  ArrowThickness 3
-  ActorBackgroundColor #1A618C
-  ActorBorderColor #EEEEEE
-  ActorFontColor #EEEEEE
+ParticipantBackgroundColor BG_MAIN_COLOR
+ParticipantBorderColor BORDER_COLOR
+ParticipantFontStyle normal
+ParticipantFontColor FONT_COLOR
+LifeLineBorderColor BORDER_COLOR
+LifeLineBackgroundColor BG_MAIN_COLOR
+ArrowColor FONT_COLOR
+ArrowBorderColor BORDER_COLOR
+ArrowFontColor FONT_COLOR
+ArrowThickness 3
+ActorBackgroundColor BG_MAIN_COLOR
+ActorBorderColor BORDER_COLOR
+ActorFontColor FONT_COLOR
 }
 
+' C4 Styling
+' ##################################
 
 skinparam rectangle<<person>> {
-  StereotypeFontColor #EEEEEE
-  FontColor #EEEEEE
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  BorderThickness 3
+StereotypeFontColor FONT_COLOR
+FontColor FONT_COLOR
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+BorderThickness BORDER_THICKNESS
 }
 
 skinparam rectangle<<external_person>> {
-  StereotypeFontColor #EEEEEE
-  FontColor #EEEEEE
-  BackgroundColor #616768
-  BorderColor #EEEEEE
-  BorderThickness 3
+StereotypeFontColor FONT_COLOR
+FontColor FONT_COLOR
+BackgroundColor BG_SECONDARY_COLOR
+BorderColor BORDER_COLOR
+BorderThickness BORDER_THICKNESS
 }
 
 skinparam rectangle<<system>> {
-  StereotypeFontColor #EEEEEE
-  FontColor #EEEEEE
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  BorderThickness 3
+StereotypeFontColor FONT_COLOR
+FontColor FONT_COLOR
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+BorderThickness BORDER_THICKNESS
 }
 
 skinparam rectangle<<external_system>> {
-  StereotypeFontColor #EEEEEE
-  FontColor #EEEEEE
-  BackgroundColor #616768
-  BorderColor #EEEEEE
-  BorderThickness 3
+StereotypeFontColor FONT_COLOR
+FontColor FONT_COLOR
+BackgroundColor BG_SECONDARY_COLOR
+BorderColor BORDER_COLOR
+BorderThickness BORDER_THICKNESS
 }
 
 skinparam database<<system>> {
-  StereotypeFontColor #EEEEEE
-  FontColor #EEEEEE
-  BackgroundColor #1A618C
-  BorderColor #EEEEEE
-  BorderThickness 3
+StereotypeFontColor FONT_COLOR
+FontColor FONT_COLOR
+BackgroundColor BG_MAIN_COLOR
+BorderColor BORDER_COLOR
+BorderThickness BORDER_THICKNESS
 }
 
 skinparam database<<external_system>> {
-  StereotypeFontColor #EEEEEE
-  FontColor #EEEEEE
-  BackgroundColor #616768
-  BorderColor #EEEEEE
-  BorderThickness 3
+StereotypeFontColor FONT_COLOR
+FontColor FONT_COLOR
+BackgroundColor BG_SECONDARY_COLOR
+BorderColor BORDER_COLOR
+BorderThickness BORDER_THICKNESS
 }
 
 skinparam rectangle<<boundary>> {
-  Shadowing false
-  StereotypeFontSize 0
-  BackgroundColor #7a209f
-  StereotypeFontColor #EEEEEE
-  FontColor #EEEEEE
-  BorderColor #EEEEEE
-  BorderStyle dashed
-  BorderThickness 3
+Shadowing false
+StereotypeFontSize 0
+BackgroundColor BG_PACKAGE_COLOR
+StereotypeFontColor FONT_COLOR
+FontColor FONT_COLOR
+BorderColor BORDER_COLOR
+BorderStyle dashed
+BorderThickness BORDER_THICKNESS
 }
 skinparam rectangle<<container>> {
-  Shadowing false
-  StereotypeFontSize 14
-  BackgroundColor #1A618C
-  StereotypeFontColor #EEEEEE
-  FontColor #EEEEEE
-  BorderColor #EEEEEE
-  BorderThickness 3
+Shadowing false
+StereotypeFontSize 14
+BackgroundColor BG_MAIN_COLOR
+StereotypeFontColor FONT_COLOR
+FontColor FONT_COLOR
+BorderColor BORDER_COLOR
+BorderThickness BORDER_THICKNESS
 }
 actor Foo1
 boundary Foo2
@@ -170,12 +181,181 @@ Foo1 -> Foo5 : To database
 Foo1 -> Foo6 : To collections
 @enduml
 
-PlantUML version 1.2020.02(Sun Mar 01 10:22:07 UTC 2020)
+@startuml
+
+
+
+skinparam Padding 4
+skinparam RoundCorner 4
+skinparam Shadowing false
+
+skinparam Default {
+FontColor #EEEEEE
+FontSize 12
+}
+
+skinparam Arrow {
+Color #EEEEEE
+FontColor #EEEEEE
+FontStyle Bold
+}
+
+skinparam package {
+FontColor #EEEEEE
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+}
+skinparam node {
+FontColor #EEEEEE
+BackgroundColor #7a209f
+BorderColor #EEEEEE
+}
+skinparam component {
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+FontColor #EEEEEE
+Style uml2
+}
+
+skinparam database {
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+FontColor #EEEEEE
+}
+
+skinparam cloud {
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+FontColor #EEEEEE
+}
+
+skinparam collections {
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+FontColor #EEEEEE
+}
+skinparam Control {
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+FontColor #EEEEEE
+}
+skinparam Boundary {
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+FontColor #EEEEEE
+}
+skinparam Entity {
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+FontColor #EEEEEE
+}
+skinparam interface {
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+FontColor #EEEEEE
+}
+skinparam SequenceParticipantBorderThickness 3
+skinparam sequence {
+ParticipantBackgroundColor #1A618C
+ParticipantBorderColor #EEEEEE
+ParticipantFontStyle normal
+ParticipantFontColor #EEEEEE
+LifeLineBorderColor #EEEEEE
+LifeLineBackgroundColor #1A618C
+ArrowColor #EEEEEE
+ArrowBorderColor #EEEEEE
+ArrowFontColor #EEEEEE
+ArrowThickness 3
+ActorBackgroundColor #1A618C
+ActorBorderColor #EEEEEE
+ActorFontColor #EEEEEE
+}
+
+
+skinparam rectangle<<person>> {
+StereotypeFontColor #EEEEEE
+FontColor #EEEEEE
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+BorderThickness 3
+}
+
+skinparam rectangle<<external_person>> {
+StereotypeFontColor #EEEEEE
+FontColor #EEEEEE
+BackgroundColor #616768
+BorderColor #EEEEEE
+BorderThickness 3
+}
+
+skinparam rectangle<<system>> {
+StereotypeFontColor #EEEEEE
+FontColor #EEEEEE
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+BorderThickness 3
+}
+
+skinparam rectangle<<external_system>> {
+StereotypeFontColor #EEEEEE
+FontColor #EEEEEE
+BackgroundColor #616768
+BorderColor #EEEEEE
+BorderThickness 3
+}
+
+skinparam database<<system>> {
+StereotypeFontColor #EEEEEE
+FontColor #EEEEEE
+BackgroundColor #1A618C
+BorderColor #EEEEEE
+BorderThickness 3
+}
+
+skinparam database<<external_system>> {
+StereotypeFontColor #EEEEEE
+FontColor #EEEEEE
+BackgroundColor #616768
+BorderColor #EEEEEE
+BorderThickness 3
+}
+
+skinparam rectangle<<boundary>> {
+Shadowing false
+StereotypeFontSize 0
+BackgroundColor #7a209f
+StereotypeFontColor #EEEEEE
+FontColor #EEEEEE
+BorderColor #EEEEEE
+BorderStyle dashed
+BorderThickness 3
+}
+skinparam rectangle<<container>> {
+Shadowing false
+StereotypeFontSize 14
+BackgroundColor #1A618C
+StereotypeFontColor #EEEEEE
+FontColor #EEEEEE
+BorderColor #EEEEEE
+BorderThickness 3
+}
+actor Foo1
+boundary Foo2
+control Foo3
+entity Foo4
+database Foo5
+collections Foo6
+Foo1 -> Foo2 : To boundary
+Foo1 -> Foo3 : To control
+Foo1 -> Foo4 : To entity
+Foo1 -> Foo5 : To database
+Foo1 -> Foo6 : To collections
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 16:01:58 UTC 2021)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
-Java Version: 1.7.0_25-b15
-Operating System: Linux
 Default Encoding: UTF-8
 Language: en
 Country: US
