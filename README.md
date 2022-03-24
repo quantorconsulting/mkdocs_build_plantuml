@@ -42,14 +42,15 @@ In `mkdocs.yml` add this plugin section (depicted are the default values):
 plugins:
   - search
   - build_plantuml:
-      render: "server" # or "local" for local rendering
-      bin_path: "/usr/local/bin/plantuml" # ignored when render: server
-      server: "http://www.plantuml.com/plantuml" # offical plantuml server
-      output_format: "svg" # or "png"
-      diagram_root: "docs/diagrams" # should reside under docs_dir
-      output_folder: "out"
-      input_folder: "src"
-      input_extensions: "" # comma separated list of extensions to parse, by default every file is parsed
+      render: 'server' # or "local" for local rendering
+      bin_path: '/usr/local/bin/plantuml' # ignored when render: server
+      server: 'http://www.plantuml.com/plantuml' # offical plantuml server
+      disable_ssl_certificate_validation: true # for self-signed and invalid certs
+      output_format: 'svg' # or "png"
+      diagram_root: 'docs/diagrams' # should reside under docs_dir
+      output_folder: 'out'
+      input_folder: 'src'
+      input_extensions: '' # comma separated list of extensions to parse, by default every file is parsed
 ```
 
 It is recommended to use the `server` option, which is much faster than `local`.
@@ -90,25 +91,27 @@ Inside your `index.md` or any other Markdown file you can then reference any cre
 
 ![file1](diagrams/out/subdir1/file1.svg)
 ```
+
 ## Dark Mode Support with >=1.4 (prefers-color-scheme)
 
-Since Version 1.4 this plugin can support dark mode when rendering with `server`. 
+Since Version 1.4 this plugin can support dark mode when rendering with `server`.
 
 **Note: Not in local mode, only server rendering mode**
 
-1. Grab a general (ie. for [Material Theme](https://squidfunk.github.io/mkdocs-material/)) dark mode support css file (i.e. from [henrywhitaker3/mkdocs-material-dark-theme](https://github.com/henrywhitaker3/mkdocs-material-dark-theme)) for your theme
-1. Enable theme support in this plugin:
-   
+1.  Grab a general (ie. for [Material Theme](https://squidfunk.github.io/mkdocs-material/)) dark mode support css file (i.e. from [henrywhitaker3/mkdocs-material-dark-theme](https://github.com/henrywhitaker3/mkdocs-material-dark-theme)) for your theme
+1.  Enable theme support in this plugin:
+
         - build_plantuml:
             [...]
             theme_enabled: true
             theme_folder: "include/themes"
             theme_light: "light.puml"
             theme_dark: "dark.puml"
-2. You have to provide two puml theme files, ie mydarkmode.puml and mylightmode.puml
-3. In the out directory a `<file>.<ext>` will be created and additionally a `<file>_dark.<ext>`
-4. Insert your images in markdown with `![file](diagrams/out/file.svg#darkable)` (this selector is then used in the [JS file](example/docs/javascript/images_dark.js) to know which images have to be exchanged)
-5. provide [`extra_javascript`](./example/docs/javascript/images_dark.js) file which handles the switch
+
+1.  You have to provide two puml theme files, ie mydarkmode.puml and mylightmode.puml
+1.  In the out directory a `<file>.<ext>` will be created and additionally a `<file>_dark.<ext>`
+1.  Insert your images in markdown with `![file](diagrams/out/file.svg#darkable)` (this selector is then used in the [JS file](example/docs/javascript/images_dark.js) to know which images have to be exchanged)
+1.  provide [`extra_javascript`](./example/docs/javascript/images_dark.js) file which handles the switch
 
 You can find an example in the [example folder](./example/)
 
