@@ -1,3 +1,4 @@
+""" MKDocs Build Plantuml Plugin """
 import os
 import time
 import base64
@@ -21,13 +22,15 @@ else:
 plantuml_alphabet = (
     string.digits + string.ascii_uppercase + string.ascii_lowercase + "-_"
 )
-base64_alphabet = string.ascii_uppercase + string.ascii_lowercase + string.digits + "+/"
+base64_alphabet = string.ascii_uppercase + \
+    string.ascii_lowercase + string.digits + "+/"
 b64_to_plantuml = maketrans(
     base64_alphabet.encode("utf-8"), plantuml_alphabet.encode("utf-8")
 )
 
 
 class BuildPlantumlPlugin(BasePlugin):
+    """ main plugin entry point """
 
     config_scheme = (
         ("render", mkdocs.config.config_options.Type(str, default="server")),
@@ -38,10 +41,17 @@ class BuildPlantumlPlugin(BasePlugin):
             ),
         ),
         (
+            "disable_ssl_certificate_validation",
+            mkdocs.config.config_options.Type(bool, default=False)),
+        (
             "bin_path",
-            mkdocs.config.config_options.Type(str, default="/usr/local/bin/plantuml"),
+            mkdocs.config.config_options.Type(
+                str, default="/usr/local/bin/plantuml"),
         ),
-        ("output_format", mkdocs.config.config_options.Type(str, default="png")),
+        (
+            "output_format",
+            mkdocs.config.config_options.Type(str, default="png")
+        ),
         (
             "diagram_root",
             mkdocs.config.config_options.Type(str, default="docs/diagrams"),
@@ -63,10 +73,12 @@ class BuildPlantumlPlugin(BasePlugin):
         self.total_time = 0
 
     def on_pre_build(self, config):
+        """ Checking given parameters and looking for files """
 
         root_dir = os.path.join(os.getcwd(), self.config["diagram_root"])
         root_src = os.path.join(
-            os.getcwd(), self.config["diagram_root"], self.config["input_folder"]
+            os.getcwd(
+            ), self.config["diagram_root"], self.config["input_folder"]
         )
 
         print("root dir: {}, src dir: {}".format(root_dir, root_src))
@@ -77,14 +89,14 @@ class BuildPlantumlPlugin(BasePlugin):
                 if self._file_matches_extension(file):
                     diagram = PuElement(file, subdir)
                     diagram.root_dir = root_dir
-                    diagram.out_dir = self._getOutDirectory(root_src, subdir)
+                    diagram.out_dir = self._get_out_directory(root_src, subdir)
 
                     # Handle to read source file
                     with open(os.path.join(diagram.directory, diagram.file), "r") as f:
                         diagram.src_file = f.readlines()
 
                     # Search for start (@startuml <filename>)
-                    if not self._searchStartTag(diagram):
+                    if not self._search_start_tag(diagram):
                         # check the outfile (.ext will be set to .png or .svg etc)
                         self._build_out_filename(diagram)
 
@@ -107,7 +119,7 @@ class BuildPlantumlPlugin(BasePlugin):
 
         return config
 
-    def _getOutDirectory(self, root_src, subdir):
+    def _get_out_directory(self, root_src, subdir):
         if self.config["output_in_dir"]:
             return os.path.join(
                 os.getcwd(),
@@ -124,14 +136,14 @@ class BuildPlantumlPlugin(BasePlugin):
             )
 
     # Search for a optional filename after the start tag
-    def _searchStartTag(self, diagram):
+    def _search_start_tag(self, diagram):
         for line in diagram.src_file:
             line = line.rstrip()
             if line.strip().startswith("@startuml"):
                 ws = line.find(" ")
                 if ws > 0:
                     # we look for <filename> which starts after a whitespace
-                    out_filename = line[ws + 1 :]
+                    out_filename = line[ws + 1:]
                     diagram.out_file = os.path.join(
                         diagram.out_dir,
                         out_filename + "." + self.config["output_format"],
@@ -139,7 +151,8 @@ class BuildPlantumlPlugin(BasePlugin):
                     if self.config["theme_enabled"]:
                         diagram.out_file_dark = os.path.join(
                             diagram.out_dir,
-                            out_filename + "_dark." + self.config["output_format"],
+                            out_filename + "_dark." +
+                            self.config["output_format"],
                         )
                     return True
 
@@ -147,13 +160,13 @@ class BuildPlantumlPlugin(BasePlugin):
         # Compare the file mtimes between src and target
         try:
             diagram.img_time = os.path.getmtime(diagram.out_file)
-        except Exception as _:
+        except Exception:
             diagram.img_time = 0
 
         if self.config["theme_enabled"]:
             try:
                 diagram.img_time_dark = os.path.getmtime(diagram.out_file_dark)
-            except Exception as _:
+            except Exception:
                 diagram.img_time_dark = 0
 
         diagram.src_time = os.path.getmtime(
@@ -212,7 +225,7 @@ class BuildPlantumlPlugin(BasePlugin):
             )
 
         # According to plantuml, simple !include can also have urls, or use the <> format to include stdlib files, ignore that and continue
-        if inc_file.startswith("http") or inc_file.startswith("<") :
+        if inc_file.startswith("http") or inc_file.startswith("<"):
             temp_file += line
             return temp_file
 
@@ -227,7 +240,7 @@ class BuildPlantumlPlugin(BasePlugin):
                 inc_file_abs = os.path.normpath(
                     os.path.join(diagram.root_dir, inc_file)
                 )
-                temp_file = self._readInclLineFile(
+                temp_file = self._read_incl_line_file(
                     diagram, temp_file, dark_mode, inc_file_abs
                 )
             except Exception as e2:
@@ -236,8 +249,8 @@ class BuildPlantumlPlugin(BasePlugin):
 
         return temp_file
 
-    def _readInclLineFile(self, diagram, temp_file, dark_mode, inc_file_abs):
-        # Save the mtime of the inc file to compare
+    def _read_incl_line_file(self, diagram, temp_file, dark_mode, inc_file_abs):
+        """ Save the mtime of the inc file to compare """
         try:
             local_inc_time = os.path.getmtime(inc_file_abs)
         except Exception as _:
@@ -265,12 +278,14 @@ class BuildPlantumlPlugin(BasePlugin):
             )
             if self.config["theme_enabled"]:
                 diagram.out_file_dark = (
-                    diagram.file[:out_index] + "_dark." + self.config["output_format"]
+                    diagram.file[:out_index] + "_dark." +
+                    self.config["output_format"]
                 )
 
         diagram.out_file = os.path.join(diagram.out_dir, diagram.out_file)
         if self.config["theme_enabled"]:
-            diagram.out_file_dark = os.path.join(diagram.out_dir, diagram.out_file_dark)
+            diagram.out_file_dark = os.path.join(
+                diagram.out_dir, diagram.out_file_dark)
 
         return diagram
 
@@ -296,7 +311,8 @@ class BuildPlantumlPlugin(BasePlugin):
                 else:
                     self._call_server(diagram, diagram.out_file)
 
-        # If Dark mode AND edit time of includes higher than image AND server render
+        # If Dark mode AND edit time of includes higher than
+        # image AND server render
         elif (
             dark_mode
             and (
@@ -308,7 +324,12 @@ class BuildPlantumlPlugin(BasePlugin):
             self._call_server(diagram, diagram.out_file_dark)
 
     def _call_server(self, diagram, out_file):
+
         http = httplib2.Http({})
+
+        if self.config["disable_ssl_certificate_validation"]:
+            http.disable_ssl_certificate_validation = True
+
         url = (
             self.config["server"]
             + "/"
@@ -321,11 +342,15 @@ class BuildPlantumlPlugin(BasePlugin):
             response, content = http.request(url)
             if response.status != 200:
                 print(
-                    "Wrong response status for " + diagram.file + ": " + str(response.status)
+                    "Wrong response status for " +
+                    diagram.file + ": " + str(response.status)
                 )
-        except Exception as e:
-            print("Server error while processing " + diagram.file + ": " + str(e))
-            raise e
+        except Exception as error:
+            print(
+                "Server error while processing "
+                + diagram.file + ": " + str(error)
+            )
+            raise error
         else:
             if not os.path.exists(os.path.join(diagram.out_dir)):
                 os.makedirs(os.path.join(diagram.out_dir))
@@ -345,6 +370,8 @@ class BuildPlantumlPlugin(BasePlugin):
 
 
 class PuElement:
+    """ plantuml helper object """
+
     def __init__(self, file, subdir):
         self.file = file
         self.directory = subdir
