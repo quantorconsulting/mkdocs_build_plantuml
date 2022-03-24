@@ -1,4 +1,4 @@
-mkdocs==1.0.4
+mkdocs==1.2.3
 #mkdocs-build-plantuml-plugin==1.5.0
 ../
 mkdocs-exclude==1.2.3
