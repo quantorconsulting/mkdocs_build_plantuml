@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='mkdocs-build-plantuml-plugin',
-    version='1.6.0',
+    version='1.7.0',
     description='An MkDocs plugin to call plantuml locally or remote',
     long_description='',
     keywords='mkdocs plantuml publishing documentation uml sequence diagram',
@@ -12,7 +12,7 @@ setup(
     license='MIT',
     python_requires='>=3.2',
     install_requires=[
-        'mkdocs>=1.0.4','httplib2'
+        'mkdocs>=1.0.4', 'httplib2'
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -21,12 +21,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3 :: Only',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7'
     ],
-    packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests", "example"]),
+    packages=find_packages(
+        exclude=["*.tests", "*.tests.*", "tests.*", "tests", "example"]),
     entry_points={
         'mkdocs.plugins': [
             'build_plantuml = mkdocs_build_plantuml_plugin.plantuml:BuildPlantumlPlugin'
