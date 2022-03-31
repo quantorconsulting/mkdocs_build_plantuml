@@ -232,7 +232,7 @@ class BuildPlantumlPlugin(BasePlugin):
         # Read contents of the included file
         try:
             inc_file_abs = os.path.normpath(os.path.join(directory, inc_file))
-            temp_file = self._readInclLineFile(
+            temp_file = self._read_incl_line_file(
                 diagram, temp_file, dark_mode, inc_file_abs
             )
         except Exception as e1:
