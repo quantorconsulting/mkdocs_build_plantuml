@@ -203,8 +203,9 @@ class BuildPlantumlPlugin(BasePlugin):
                 )
             else:
                 temp_file += line
-                if "\n" not in line:
-                    temp_file += "\n"
+
+            if "\n" not in line:
+                temp_file += "\n"
 
         return temp_file
 
