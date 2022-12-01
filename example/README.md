@@ -1,6 +1,6 @@
 # Mkdocs-Build-Plantuml Plugin example dir
 
-## Prerequesites to build static content
+## Prerequisites to build static content
 
 - Python3
 - MkDocs (`pip3 install mkdocs`)
