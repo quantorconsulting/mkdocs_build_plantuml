@@ -16,7 +16,7 @@ Alice -> Bob
 
 this is plugin is _not_ the right one. Please check out [plantuml-markdown](https://github.com/mikitex70/plantuml-markdown) which does exactly that.
 
-## Prerequesites
+## Prerequisites
 
 You need to have installed
 
@@ -44,7 +44,7 @@ plugins:
   - build_plantuml:
       render: 'server' # or "local" for local rendering
       bin_path: '/usr/local/bin/plantuml' # ignored when render: server
-      server: 'http://www.plantuml.com/plantuml' # offical plantuml server
+      server: 'http://www.plantuml.com/plantuml' # official plantuml server
       disable_ssl_certificate_validation: true # for self-signed and invalid certs
       output_format: 'svg' # or "png"
       diagram_root: 'docs/diagrams' # should reside under docs_dir
@@ -117,7 +117,7 @@ You can find an example in the [example folder](./example/)
 
 ### Example Output
 
-![DarkMode](./swich_dark_mode.gif)
+![DarkMode](./switch_dark_mode.gif)
 
 ## Known restrictions
 
