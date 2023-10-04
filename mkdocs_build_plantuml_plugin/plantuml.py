@@ -76,7 +76,7 @@ class BuildPlantumlPlugin(BasePlugin):
                         diagram.out_dir = self._get_out_directory(root, subdir)
 
                         # Handle to read source file
-                        with open(os.path.join(diagram.directory, diagram.file), "r") as f:
+                        with open(os.path.join(diagram.directory, diagram.file), "r", encoding="utf-8") as f:
                             diagram.src_file = f.readlines()
 
                         # Search for start (@startuml <filename>)

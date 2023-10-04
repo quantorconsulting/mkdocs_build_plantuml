@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='mkdocs-build-plantuml-plugin',
-    version='1.7.4',
+    version='1.8.0',
     description='An MkDocs plugin to call plantuml locally or remote',
     long_description='',
     keywords='mkdocs plantuml publishing documentation uml sequence diagram',
     url='https://github.com/christo-ph/mkdocs_build_plantuml',
     author='Christoph Galler',
-    author_email='galler@quantor.com',
+    author_email='galler@quantor.consulting',
     license='MIT',
     python_requires='>=3.2',
     install_requires=[
