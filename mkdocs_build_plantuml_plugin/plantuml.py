@@ -1,14 +1,12 @@
 """ MKDocs Build Plantuml Plugin """
 import os
-import time
 import base64
 import zlib
 import string
 import six
 import httplib2
 
-from mkdocs import utils as mkdocs_utils
-from mkdocs.config import config_options, Config
+from mkdocs.config import config_options
 from mkdocs.plugins import BasePlugin
 from subprocess import call
 import mkdocs.structure.files
@@ -34,37 +32,18 @@ class BuildPlantumlPlugin(BasePlugin):
 
     config_scheme = (
         ("render", mkdocs.config.config_options.Type(str, default="server")),
-        (
-            "server",
-            mkdocs.config.config_options.Type(
-                str, default="http://www.plantuml.com/plantuml"
-            ),
-        ),
-        (
-            "disable_ssl_certificate_validation",
-            mkdocs.config.config_options.Type(bool, default=False)),
-        (
-            "bin_path",
-            mkdocs.config.config_options.Type(
-                str, default="/usr/local/bin/plantuml"),
-        ),
-        (
-            "output_format",
-            mkdocs.config.config_options.Type(str, default="png")
-        ),
-        (
-            "diagram_root",
-            mkdocs.config.config_options.Type(str, default="docs/diagrams"),
-        ),
+        ("server", mkdocs.config.config_options.Type(str, default="http://www.plantuml.com/plantuml")),
+        ("disable_ssl_certificate_validation", mkdocs.config.config_options.Type(bool, default=False)),
+        ("bin_path", mkdocs.config.config_options.Type(str, default="/usr/local/bin/plantuml")),
+        ("output_format", mkdocs.config.config_options.Type(str, default="png")),
+        ("allow_multiple_roots", mkdocs.config.config_options.Type(bool, default=False)),
+        ("diagram_root", mkdocs.config.config_options.Type(str, default="docs/diagrams")),
         ("output_folder", mkdocs.config.config_options.Type(str, default="out")),
         ("output_in_dir", mkdocs.config.config_options.Type(bool, default=False)),
         ("input_folder", mkdocs.config.config_options.Type(str, default="src")),
         ("input_extensions", mkdocs.config.config_options.Type(str, default="")),
         ("theme_enabled", mkdocs.config.config_options.Type(bool, default=False)),
-        (
-            "theme_folder",
-            mkdocs.config.config_options.Type(str, default="include/themes/"),
-        ),
+        ("theme_folder", mkdocs.config.config_options.Type(str, default="include/themes/")),
         ("theme_light", mkdocs.config.config_options.Type(str, default="light.puml")),
         ("theme_dark", mkdocs.config.config_options.Type(str, default="dark.puml")),
     )
@@ -75,64 +54,76 @@ class BuildPlantumlPlugin(BasePlugin):
     def on_pre_build(self, config):
         """ Checking given parameters and looking for files """
 
-        root_dir = os.path.join(os.getcwd(), self.config["diagram_root"])
-        root_src = os.path.join(
-            os.getcwd(
-            ), self.config["diagram_root"], self.config["input_folder"]
-        )
+        diagram_roots = []
 
-        print("root dir: {}, src dir: {}".format(root_dir, root_src))
+        if self.config["allow_multiple_roots"]:
+            # Run through cwd in search of diagram roots
+            for subdir, dirs, _ in os.walk(os.getcwd()):
+                for directory in dirs:
+                    my_subdir = subdir + "/" + directory
+                    if my_subdir.endswith(self.config["diagram_root"]):
+                        diagram_roots.append(self._make_diagram_root(my_subdir))
+        else:
+            diagram_roots.append(self._make_diagram_root(self.config["diagram_root"]))
 
-        # Run through input folder
-        for subdir, _, files in os.walk(root_src):
-            for file in files:
-                if self._file_matches_extension(file):
-                    diagram = PuElement(file, subdir)
-                    diagram.root_dir = root_dir
-                    diagram.out_dir = self._get_out_directory(root_src, subdir)
+        # Run through input folders
+        for root in diagram_roots:
+            for subdir, _, files in os.walk(root.src_dir):
+                for file in files:
+                    if self._file_matches_extension(file):
+                        diagram = PuElement(file, subdir)
+                        diagram.root_dir = root.root_dir
+                        diagram.out_dir = self._get_out_directory(root, subdir)
 
-                    # Handle to read source file
-                    with open(os.path.join(diagram.directory, diagram.file), "r") as f:
-                        diagram.src_file = f.readlines()
+                        # Handle to read source file
+                        with open(os.path.join(diagram.directory, diagram.file), "r") as f:
+                            diagram.src_file = f.readlines()
 
-                    # Search for start (@startuml <filename>)
-                    if not self._search_start_tag(diagram):
-                        # check the outfile (.ext will be set to .png or .svg etc)
-                        self._build_out_filename(diagram)
+                        # Search for start (@startuml <filename>)
+                        if not self._search_start_tag(diagram):
+                            # check the outfile (.ext will be set to .png or .svg etc)
+                            self._build_out_filename(diagram)
 
-                    # Checks mtimes for target and include files to know if we update
-                    self._build_mtimes(diagram)
+                        # Checks mtimes for target and include files to know if we update
+                        self._build_mtimes(diagram)
 
-                    # Go through the file (only relevant for server rendering)
-                    self._readFile(diagram, False)
-
-                    # Finally convert
-                    self._convert(diagram)
-
-                    # Second time (if dark mode is enabled)
-                    if self.config["theme_enabled"]:
-                        # Go through the file a second time for themed option
-                        self._readFile(diagram, True)
+                        # Go through the file (only relevant for server rendering)
+                        self._readFile(diagram, False)
 
                         # Finally convert
-                        self._convert(diagram, True)
+                        self._convert(diagram)
+
+                        # Second time (if dark mode is enabled)
+                        if self.config["theme_enabled"]:
+                            # Go through the file a second time for themed option
+                            self._readFile(diagram, True)
+
+                            # Finally convert
+                            self._convert(diagram, True)
 
         return config
 
-    def _get_out_directory(self, root_src, subdir):
+    def _make_diagram_root(self, subdir):
+        diagram_root = DiagramRoot()
+        diagram_root.root_dir = os.path.join(os.getcwd(), subdir)
+        diagram_root.src_dir = os.path.join(os.getcwd(), subdir, self.config["input_folder"])
+        print("root dir: {}, src dir: {}".format(diagram_root.root_dir, diagram_root.src_dir))
+        return diagram_root
+
+    def _get_out_directory(self, root, subdir):
         if self.config["output_in_dir"]:
             return os.path.join(
                 os.getcwd(),
-                self.config["diagram_root"],
-                *subdir.replace(root_src, "").split(os.sep),
+                root.root_dir,
+                *subdir.replace(root.src_dir, "").split(os.sep),
                 self.config["output_folder"]
             )
         else:
             return os.path.join(
                 os.getcwd(),
-                self.config["diagram_root"],
+                root.root_dir,
                 self.config["output_folder"],
-                *subdir.replace(root_src, "").split(os.sep)
+                *subdir.replace(root.src_dir, "").split(os.sep)
             )
 
     # Search for a optional filename after the start tag
@@ -225,7 +216,8 @@ class BuildPlantumlPlugin(BasePlugin):
                 self.config["theme_light"], self.config["theme_dark"]
             )
 
-        # According to plantuml, simple !include can also have urls, or use the <> format to include stdlib files, ignore that and continue
+        # According to plantuml, simple !include can also have urls, or use the <> format to include stdlib files,
+        # ignore that and continue
         if inc_file.startswith("http") or inc_file.startswith("<"):
             temp_file += line
             return temp_file
@@ -386,3 +378,12 @@ class PuElement:
         self.out_file_dark = ""
         self.b64encoded = ""
         self.concat_file = ""
+        self.src_file = ""
+
+
+class DiagramRoot:
+    """ object containing the src and out directories per diagram root """
+
+    def __init__(self):
+        self.root_dir = ""
+        self.src_dir = ""

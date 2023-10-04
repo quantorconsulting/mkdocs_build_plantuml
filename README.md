@@ -47,6 +47,7 @@ plugins:
       server: 'http://www.plantuml.com/plantuml' # official plantuml server
       disable_ssl_certificate_validation: true # for self-signed and invalid certs
       output_format: 'svg' # or "png"
+      allow_multiple_roots: false # in case your codebase contains more locations for diagrams (all ending in diagram_root)
       diagram_root: 'docs/diagrams' # should reside under docs_dir
       output_folder: 'out'
       input_folder: 'src'
