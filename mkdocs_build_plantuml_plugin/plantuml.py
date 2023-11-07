@@ -6,10 +6,10 @@ import string
 import six
 import httplib2
 
-from mkdocs.config import config_options
+from mkdocs.config import config_options, base
 from mkdocs.plugins import BasePlugin
-from subprocess import call
 import mkdocs.structure.files
+from subprocess import call
 
 if six.PY2:
     from string import maketrans
@@ -27,26 +27,26 @@ b64_to_plantuml = maketrans(
 )
 
 
-class BuildPlantumlPlugin(BasePlugin):
-    """ main plugin entry point """
+class BuildPlantumlPluginConfig(base.Config):
+    render = mkdocs.config.config_options.Type(str, default="server")
+    server = mkdocs.config.config_options.Type(str, default="http://www.plantuml.com/plantuml")
+    disable_ssl_certificate_validation = mkdocs.config.config_options.Type(bool, default=False)
+    bin_path = mkdocs.config.config_options.Type(str, default="/usr/local/bin/plantuml")
+    output_format = mkdocs.config.config_options.Type(str, default="png")
+    allow_multiple_roots = mkdocs.config.config_options.Type(bool, default=False)
+    diagram_root = mkdocs.config.config_options.Type(str, default="docs/diagrams")
+    output_folder = mkdocs.config.config_options.Type(str, default="out")
+    output_in_dir = mkdocs.config.config_options.Type(bool, default=False)
+    input_folder = mkdocs.config.config_options.Type(str, default="src")
+    input_extensions = mkdocs.config.config_options.Type(str, default="")
+    theme_enabled = mkdocs.config.config_options.Type(bool, default=False)
+    theme_folder = mkdocs.config.config_options.Type(str, default="include/themes/")
+    theme_light = mkdocs.config.config_options.Type(str, default="light.puml")
+    theme_dark = mkdocs.config.config_options.Type(str, default="dark.puml")
 
-    config_scheme = (
-        ("render", mkdocs.config.config_options.Type(str, default="server")),
-        ("server", mkdocs.config.config_options.Type(str, default="http://www.plantuml.com/plantuml")),
-        ("disable_ssl_certificate_validation", mkdocs.config.config_options.Type(bool, default=False)),
-        ("bin_path", mkdocs.config.config_options.Type(str, default="/usr/local/bin/plantuml")),
-        ("output_format", mkdocs.config.config_options.Type(str, default="png")),
-        ("allow_multiple_roots", mkdocs.config.config_options.Type(bool, default=False)),
-        ("diagram_root", mkdocs.config.config_options.Type(str, default="docs/diagrams")),
-        ("output_folder", mkdocs.config.config_options.Type(str, default="out")),
-        ("output_in_dir", mkdocs.config.config_options.Type(bool, default=False)),
-        ("input_folder", mkdocs.config.config_options.Type(str, default="src")),
-        ("input_extensions", mkdocs.config.config_options.Type(str, default="")),
-        ("theme_enabled", mkdocs.config.config_options.Type(bool, default=False)),
-        ("theme_folder", mkdocs.config.config_options.Type(str, default="include/themes/")),
-        ("theme_light", mkdocs.config.config_options.Type(str, default="light.puml")),
-        ("theme_dark", mkdocs.config.config_options.Type(str, default="dark.puml")),
-    )
+
+class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
+    """ main plugin entry point """
 
     def __init__(self):
         self.total_time = 0
@@ -84,7 +84,7 @@ class BuildPlantumlPlugin(BasePlugin):
                             # check the outfile (.ext will be set to .png or .svg etc)
                             self._build_out_filename(diagram)
 
-                        # Checks mtimes for target and include files to know if we update
+                        # Checks modification times for target and include files to know if we update
                         self._build_mtimes(diagram)
 
                         # Go through the file (only relevant for server rendering)
@@ -137,7 +137,8 @@ class BuildPlantumlPlugin(BasePlugin):
                     out_filename = line[ws + 1:]
                     diagram.out_file = os.path.join(
                         diagram.out_dir,
-                        out_filename + "." + self.config["output_format"],
+                        out_filename + "." + 
+                        self.config["output_format"],
                     )
                     if self.config["theme_enabled"]:
                         diagram.out_file_dark = os.path.join(
@@ -146,6 +147,7 @@ class BuildPlantumlPlugin(BasePlugin):
                             self.config["output_format"],
                         )
                     return True
+        return False
 
     def _build_mtimes(self, diagram):
         # Compare the file mtimes between src and target
@@ -168,7 +170,7 @@ class BuildPlantumlPlugin(BasePlugin):
         diagram.inc_time = 0
 
     def _readFile(self, diagram, dark_mode):
-        temp_file = self._readFileRec(
+        temp_file = self._readFileRecursively(
             diagram.src_file, "", diagram, diagram.directory, dark_mode
         )
         try:
@@ -184,12 +186,11 @@ class BuildPlantumlPlugin(BasePlugin):
             diagram.b64encoded = ""
 
     # Reads the file recursively
-    def _readFileRec(self, lines, temp_file, diagram, directory, dark_mode):
-
+    def _readFileRecursively(self, lines, temp_file, diagram, directory, dark_mode):
         for line in lines:
             line = line.strip()
             if line.startswith("!include"):
-                temp_file = self._readInclLine(
+                temp_file = self._readIncludeLine(
                     diagram, line, temp_file, directory, dark_mode
                 )
             else:
@@ -200,46 +201,80 @@ class BuildPlantumlPlugin(BasePlugin):
 
         return temp_file
 
-    def _readInclLine(self, diagram, line, temp_file, directory, dark_mode):
-
-        # If includeurl is found, we do not have to do anything here. Server
-        # can handle that
-        if "!includeurl" in line:
+    def _readIncludeLine(self, diagram, line, temp_file, directory, dark_mode):
+        """ Handles the different include types like !includeurl, !include and !includesub """
+        # If includeurl is found, we do not have to do anything here. 
+        # Server can handle that
+        if line.startswith("!includeurl "):
             temp_file += line
-            return temp_file
+        
+        elif line.startswith("!includesub "):
+            # on the twelfth position starts the inluded file
+            parts = line[12:].rstrip().split('!')
+            if len(parts) == 2:
+                inc_file = parts[0]  # Extract the file path
+                sub_name = parts[1]  # Extract the sub name after the '!'
+                
+                if dark_mode:
+                    inc_file = inc_file.replace(
+                        self.config["theme_light"], self.config["theme_dark"]
+                    )
 
-        # on the ninth position starts the filename
-        inc_file = line[9:].rstrip()
+                # Read sub contents of the included file
+                try:
+                    inc_file_abs = os.path.normpath(os.path.join(directory, inc_file))
+                    temp_file = self._read_incl_sub(
+                        diagram, temp_file, dark_mode, inc_file_abs, sub_name
+                    )
+                except Exception as e1:
+                    try:
+                        inc_file_abs = os.path.normpath(
+                            os.path.join(diagram.root_dir, inc_file)
+                        )
+                        temp_file = self._read_incl_sub(
+                            diagram, temp_file, dark_mode, inc_file_abs, sub_name
+                        )
+                    except Exception as e2:
+                        print("Could not find included file" + str(e1) + str(e2))
+                        raise e2
+            else:
+                raise Exception("Invalid !includesub syntax. Expected: !includesub <filepath>!<sub_name>")
+        
+        elif line.startswith("!include "):
+            # on the ninth position starts the filename
+            inc_file = line[9:].rstrip()
 
-        if dark_mode:
-            inc_file = inc_file.replace(
-                self.config["theme_light"], self.config["theme_dark"]
-            )
-
-        # According to plantuml, simple !include can also have urls, or use the <> format to include stdlib files,
-        # ignore that and continue
-        if inc_file.startswith("http") or inc_file.startswith("<"):
-            temp_file += line
-            return temp_file
-
-        # Read contents of the included file
-        try:
-            inc_file_abs = os.path.normpath(os.path.join(directory, inc_file))
-            temp_file = self._read_incl_line_file(
-                diagram, temp_file, dark_mode, inc_file_abs
-            )
-        except Exception as e1:
-            try:
-                inc_file_abs = os.path.normpath(
-                    os.path.join(diagram.root_dir, inc_file)
+            if dark_mode:
+                inc_file = inc_file.replace(
+                    self.config["theme_light"], self.config["theme_dark"]
                 )
+
+            # According to plantuml, simple !include can also have urls, or use the <> format to include stdlib files,
+            # ignore that and continue
+            if inc_file.startswith("http") or inc_file.startswith("<"):
+                temp_file += line
+                return temp_file
+
+            # Read contents of the included file
+            try:
+                inc_file_abs = os.path.normpath(os.path.join(directory, inc_file))
                 temp_file = self._read_incl_line_file(
                     diagram, temp_file, dark_mode, inc_file_abs
                 )
-            except Exception as e2:
-                print("Could not find include " + str(e1) + str(e2))
-                raise e2
-
+            except Exception as e1:
+                try:
+                    inc_file_abs = os.path.normpath(
+                        os.path.join(diagram.root_dir, inc_file)
+                    )
+                    temp_file = self._read_incl_line_file(
+                        diagram, temp_file, dark_mode, inc_file_abs
+                    )
+                except Exception as e2:
+                    print("Could not find include " + str(e1) + str(e2))
+                    raise e2
+        else:
+            # unknown include type
+            pass
         return temp_file
 
     def _read_incl_line_file(self, diagram, temp_file, dark_mode, inc_file_abs):
@@ -253,8 +288,41 @@ class BuildPlantumlPlugin(BasePlugin):
             diagram.inc_time = local_inc_time
 
         with open(inc_file_abs, "r") as inc:
-            temp_file = self._readFileRec(
+            temp_file = self._readFileRecursively(
                 inc,
+                temp_file,
+                diagram,
+                os.path.dirname(os.path.realpath(inc_file_abs)),
+                dark_mode,
+            )
+
+        return temp_file
+    
+    def _read_incl_sub(self, diagram, temp_file, dark_mode, inc_file_abs, inc_sub_name):
+        """ Handle !includesub statements """
+        # Save the mtime of the inc file to compare
+        try:
+            local_inc_time = os.path.getmtime(inc_file_abs)
+        except Exception as _:
+            local_inc_time = 0
+
+        if local_inc_time > diagram.inc_time:
+            diagram.inc_time = local_inc_time
+        
+        temp_sub = []
+        add_following = False
+        with open(inc_file_abs, "r") as inc:
+            for line in inc:
+                line = line.strip()
+                if line.startswith("!startsub " + inc_sub_name):
+                    add_following = True
+                elif line.startswith("!endsub") or line.startswith("@enduml"):
+                    add_following = False
+                elif add_following:
+                    temp_sub.append(line)
+            
+            temp_file = self._readFileRecursively(
+                temp_sub, # Do only use the subs for further recursion
                 temp_file,
                 diagram,
                 os.path.dirname(os.path.realpath(inc_file_abs)),

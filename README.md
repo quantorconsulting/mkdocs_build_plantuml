@@ -99,8 +99,8 @@ Since Version 1.4 this plugin can support dark mode when rendering with `server`
 
 **Note: Not in local mode, only server rendering mode**
 
-1.  Grab a general (ie. for [Material Theme](https://squidfunk.github.io/mkdocs-material/)) dark mode support css file (i.e. from [henrywhitaker3/mkdocs-material-dark-theme](https://github.com/henrywhitaker3/mkdocs-material-dark-theme)) for your theme
-1.  Enable theme support in this plugin:
+1. Grab a general (ie. for [Material Theme](https://squidfunk.github.io/mkdocs-material/)) dark mode support css file (i.e. from [henrywhitaker3/mkdocs-material-dark-theme](https://github.com/henrywhitaker3/mkdocs-material-dark-theme)) for your theme
+1. Enable theme support in this plugin:
 
         - build_plantuml:
             [...]
@@ -109,10 +109,10 @@ Since Version 1.4 this plugin can support dark mode when rendering with `server`
             theme_light: "light.puml"
             theme_dark: "dark.puml"
 
-1.  You have to provide two puml theme files, ie mydarkmode.puml and mylightmode.puml
-1.  In the out directory a `<file>.<ext>` will be created and additionally a `<file>_dark.<ext>`
-1.  Insert your images in markdown with `![file](diagrams/out/file.svg#darkable)` (this selector is then used in the [JS file](example/docs/javascript/images_dark.js) to know which images have to be exchanged)
-1.  provide [`extra_javascript`](./example/docs/javascript/images_dark.js) file which handles the switch
+1. You have to provide two puml theme files, ie mydarkmode.puml and mylightmode.puml
+1. In the out directory a `<file>.<ext>` will be created and additionally a `<file>_dark.<ext>`
+1. Insert your images in markdown with `![file](diagrams/out/file.svg#darkable)` (this selector is then used in the [JS file](example/docs/javascript/images_dark.js) to know which images have to be exchanged)
+1. provide [`extra_javascript`](./example/docs/javascript/images_dark.js) file which handles the switch
 
 You can find an example in the [example folder](./example/)
 
