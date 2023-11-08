@@ -1,10 +1,11 @@
 """ MKDocs Build Plantuml Plugin """
-import os
 import base64
-import zlib
-import string
-import six
 import httplib2
+import os
+import re
+import six
+import string
+import zlib
 
 from mkdocs.config import config_options, base
 from mkdocs.plugins import BasePlugin
@@ -205,12 +206,12 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
         """ Handles the different include types like !includeurl, !include and !includesub """
         # If includeurl is found, we do not have to do anything here. 
         # Server can handle that
-        if line.startswith("!includeurl "):
+        if re.match(r"^!includeurl\s+\S+\s*$", line):
             temp_file += line
         
-        elif line.startswith("!includesub "):
-            # on the twelfth position starts the inluded file
-            parts = line[12:].rstrip().split('!')
+        elif re.match(r"^!includesub\s+\S+\s*$", line):
+            # on the eleventh position starts the inluded file
+            parts = line[11:].strip().split('!')
             if len(parts) == 2:
                 inc_file = parts[0]  # Extract the file path
                 sub_name = parts[1]  # Extract the sub name after the '!'
@@ -240,7 +241,7 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
             else:
                 raise Exception("Invalid !includesub syntax. Expected: !includesub <filepath>!<sub_name>")
         
-        elif line.startswith("!include "):
+        elif re.match(r"^!include\s+\S+\s*$", line):
             # on the ninth position starts the filename
             inc_file = line[9:].rstrip()
 
@@ -273,8 +274,7 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
                     print("Could not find include " + str(e1) + str(e2))
                     raise e2
         else:
-            # unknown include type
-            pass
+            raise Exception("Unnown include type: " + line)
         return temp_file
 
     def _read_incl_line_file(self, diagram, temp_file, dark_mode, inc_file_abs):
@@ -314,9 +314,9 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
         with open(inc_file_abs, "r") as inc:
             for line in inc:
                 line = line.strip()
-                if line.startswith("!startsub " + inc_sub_name):
+                if re.match(r"^!startsub\s+" + re.escape(inc_sub_name) + r"\s*$", line):
                     add_following = True
-                elif line.startswith("!endsub") or line.startswith("@enduml"):
+                elif re.match(r"^!endsub\s*$", line) or re.match(r"^@enduml\s*$", line):
                     add_following = False
                 elif add_following:
                     temp_sub.append(line)
