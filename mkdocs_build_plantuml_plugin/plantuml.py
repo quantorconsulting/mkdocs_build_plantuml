@@ -21,8 +21,7 @@ else:
 plantuml_alphabet = (
     string.digits + string.ascii_uppercase + string.ascii_lowercase + "-_"
 )
-base64_alphabet = string.ascii_uppercase + \
-    string.ascii_lowercase + string.digits + "+/"
+base64_alphabet = string.ascii_uppercase + string.ascii_lowercase + string.digits + "+/"
 b64_to_plantuml = maketrans(
     base64_alphabet.encode("utf-8"), plantuml_alphabet.encode("utf-8")
 )
@@ -30,8 +29,12 @@ b64_to_plantuml = maketrans(
 
 class BuildPlantumlPluginConfig(base.Config):
     render = mkdocs.config.config_options.Type(str, default="server")
-    server = mkdocs.config.config_options.Type(str, default="http://www.plantuml.com/plantuml")
-    disable_ssl_certificate_validation = mkdocs.config.config_options.Type(bool, default=False)
+    server = mkdocs.config.config_options.Type(
+        str, default="http://www.plantuml.com/plantuml"
+    )
+    disable_ssl_certificate_validation = mkdocs.config.config_options.Type(
+        bool, default=False
+    )
     bin_path = mkdocs.config.config_options.Type(str, default="/usr/local/bin/plantuml")
     output_format = mkdocs.config.config_options.Type(str, default="png")
     allow_multiple_roots = mkdocs.config.config_options.Type(bool, default=False)
@@ -47,13 +50,13 @@ class BuildPlantumlPluginConfig(base.Config):
 
 
 class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
-    """ main plugin entry point """
+    """main plugin entry point"""
 
     def __init__(self):
         self.total_time = 0
 
     def on_pre_build(self, config):
-        """ Checking given parameters and looking for files """
+        """Checking given parameters and looking for files"""
 
         diagram_roots = []
 
@@ -77,7 +80,11 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
                         diagram.out_dir = self._get_out_directory(root, subdir)
 
                         # Handle to read source file
-                        with open(os.path.join(diagram.directory, diagram.file), "r", encoding="utf-8") as f:
+                        with open(
+                            os.path.join(diagram.directory, diagram.file),
+                            "r",
+                            encoding="utf-8",
+                        ) as f:
                             diagram.src_file = f.readlines()
 
                         # Search for start (@startuml <filename>)
@@ -107,8 +114,14 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
     def _make_diagram_root(self, subdir):
         diagram_root = DiagramRoot()
         diagram_root.root_dir = os.path.join(os.getcwd(), subdir)
-        diagram_root.src_dir = os.path.join(os.getcwd(), subdir, self.config["input_folder"])
-        print("root dir: {}, src dir: {}".format(diagram_root.root_dir, diagram_root.src_dir))
+        diagram_root.src_dir = os.path.join(
+            os.getcwd(), subdir, self.config["input_folder"]
+        )
+        print(
+            "root dir: {}, src dir: {}".format(
+                diagram_root.root_dir, diagram_root.src_dir
+            )
+        )
         return diagram_root
 
     def _get_out_directory(self, root, subdir):
@@ -135,17 +148,15 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
                 ws = line.find(" ")
                 if ws > 0:
                     # we look for <filename> which starts after a whitespace
-                    out_filename = line[ws + 1:]
+                    out_filename = line[ws + 1 :]
                     diagram.out_file = os.path.join(
                         diagram.out_dir,
-                        out_filename + "." + 
-                        self.config["output_format"],
+                        out_filename + "." + self.config["output_format"],
                     )
                     if self.config["theme_enabled"]:
                         diagram.out_file_dark = os.path.join(
                             diagram.out_dir,
-                            out_filename + "_dark." +
-                            self.config["output_format"],
+                            out_filename + "_dark." + self.config["output_format"],
                         )
                     return True
         return False
@@ -203,19 +214,19 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
         return temp_file
 
     def _readIncludeLine(self, diagram, line, temp_file, directory, dark_mode):
-        """ Handles the different include types like !includeurl, !include and !includesub """
-        # If includeurl is found, we do not have to do anything here. 
+        """Handles the different include types like !includeurl, !include and !includesub"""
+        # If includeurl is found, we do not have to do anything here.
         # Server can handle that
         if re.match(r"^!includeurl\s+\S+\s*$", line):
             temp_file += line
-        
+
         elif re.match(r"^!includesub\s+\S+\s*$", line):
             # on the eleventh position starts the inluded file
-            parts = line[11:].strip().split('!')
+            parts = line[11:].strip().split("!")
             if len(parts) == 2:
                 inc_file = parts[0]  # Extract the file path
                 sub_name = parts[1]  # Extract the sub name after the '!'
-                
+
                 if dark_mode:
                     inc_file = inc_file.replace(
                         self.config["theme_light"], self.config["theme_dark"]
@@ -239,8 +250,10 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
                         print("Could not find included file" + str(e1) + str(e2))
                         raise e2
             else:
-                raise Exception("Invalid !includesub syntax. Expected: !includesub <filepath>!<sub_name>")
-        
+                raise Exception(
+                    "Invalid !includesub syntax. Expected: !includesub <filepath>!<sub_name>"
+                )
+
         elif re.match(r"^!include\s+\S+\s*$", line):
             # on the ninth position starts the filename
             inc_file = line[9:].rstrip()
@@ -274,11 +287,11 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
                     print("Could not find include " + str(e1) + str(e2))
                     raise e2
         else:
-            raise Exception("Unnown include type: " + line)
+            raise Exception("Unknown include type: " + line)
         return temp_file
 
     def _read_incl_line_file(self, diagram, temp_file, dark_mode, inc_file_abs):
-        """ Save the mtime of the inc file to compare """
+        """Save the mtime of the inc file to compare"""
         try:
             local_inc_time = os.path.getmtime(inc_file_abs)
         except Exception as _:
@@ -297,9 +310,9 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
             )
 
         return temp_file
-    
+
     def _read_incl_sub(self, diagram, temp_file, dark_mode, inc_file_abs, inc_sub_name):
-        """ Handle !includesub statements """
+        """Handle !includesub statements"""
         # Save the mtime of the inc file to compare
         try:
             local_inc_time = os.path.getmtime(inc_file_abs)
@@ -308,7 +321,7 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
 
         if local_inc_time > diagram.inc_time:
             diagram.inc_time = local_inc_time
-        
+
         temp_sub = []
         add_following = False
         with open(inc_file_abs, "r") as inc:
@@ -320,9 +333,9 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
                     add_following = False
                 elif add_following:
                     temp_sub.append(line)
-            
+
             temp_file = self._readFileRecursively(
-                temp_sub, # Do only use the subs for further recursion
+                temp_sub,  # Do only use the subs for further recursion
                 temp_file,
                 diagram,
                 os.path.dirname(os.path.realpath(inc_file_abs)),
@@ -339,24 +352,20 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
             )
             if self.config["theme_enabled"]:
                 diagram.out_file_dark = (
-                    diagram.file[:out_index] + "_dark." +
-                    self.config["output_format"]
+                    diagram.file[:out_index] + "_dark." + self.config["output_format"]
                 )
 
         diagram.out_file = os.path.join(diagram.out_dir, diagram.out_file)
         if self.config["theme_enabled"]:
-            diagram.out_file_dark = os.path.join(
-                diagram.out_dir, diagram.out_file_dark)
+            diagram.out_file_dark = os.path.join(diagram.out_dir, diagram.out_file_dark)
 
         return diagram
 
     def _convert(self, diagram, dark_mode=False):
-
         if not dark_mode:
             if (diagram.img_time < diagram.src_time) or (
                 diagram.inc_time > diagram.img_time
             ):
-
                 print("Converting " + os.path.join(diagram.directory, diagram.file))
                 if self.config["render"] == "local":
                     command = self.config["bin_path"].rsplit()
@@ -385,7 +394,6 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
             self._call_server(diagram, diagram.out_file_dark)
 
     def _call_server(self, diagram, out_file):
-
         http = httplib2.Http({})
 
         if self.config["disable_ssl_certificate_validation"]:
@@ -403,14 +411,13 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
             response, content = http.request(url)
             if response.status != 200:
                 print(
-                    "Wrong response status for " +
-                    diagram.file + ": " + str(response.status)
+                    "Wrong response status for "
+                    + diagram.file
+                    + ": "
+                    + str(response.status)
                 )
         except Exception as error:
-            print(
-                "Server error while processing "
-                + diagram.file + ": " + str(error)
-            )
+            print("Server error while processing " + diagram.file + ": " + str(error))
             raise error
         else:
             if not os.path.exists(os.path.join(diagram.out_dir)):
@@ -431,7 +438,7 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
 
 
 class PuElement:
-    """ plantuml helper object """
+    """plantuml helper object"""
 
     def __init__(self, file, subdir):
         self.file = file
@@ -450,7 +457,7 @@ class PuElement:
 
 
 class DiagramRoot:
-    """ object containing the src and out directories per diagram root """
+    """object containing the src and out directories per diagram root"""
 
     def __init__(self):
         self.root_dir = ""
