@@ -2,11 +2,23 @@
 
 # MkDocs-Build-Plantuml-Plugin
 
-This plugin builds your Plantuml image files with `mkdocs serve` automatically.
+## Table of Contents
 
-My intend was, that I do not like inline diagrams and stumbled upon issues like non-working `!includes`.
+- [About the Project](#about-the-project)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dark Mode Support](#dark-mode-support)
+- [Known restrictions](#known-restrictions)
+- [Contributing](#contributing)
 
-**Note**: if you want inline diagrams in your Markdown files like
+## About the Project
+
+This plugin automates the generation of PlantUML image files when using `mkdocs serve`.
+
+The motivation behind this plugin is to provide a solution for users who prefer not to use inline diagrams and have encountered challenges with non-functional !includes.
+
+**Note**: If you want inline diagrams in your Markdown files
 
 ````markdown
 ```plantuml
@@ -14,23 +26,25 @@ Alice -> Bob
 ```
 ````
 
-this is plugin is _not_ the right one. Please check out [plantuml-markdown](https://github.com/mikitex70/plantuml-markdown) which does exactly that.
+this plugin does _not_ meet your requirements. Please check out [plantuml-markdown](https://github.com/mikitex70/plantuml-markdown) which does exactly that.
 
 ## Prerequisites
 
-You need to have installed
+You need to have installed:
 
 - Python3
 - [MkDocs](https://www.mkdocs.org)
-- Java for Plantuml (if running locally)
+- Java for Plantuml (If running locally)
 - [Plantuml](https://plantuml.com) (if running locally)
 - This plugin (needs httplib2 for server rendering)
 
-On OSX you can install plantuml with homebrew which puts a plantuml executable in `/usr/local/bin/plantuml`.
+On macOS you can install plantuml with homebrew which puts a plantuml executable in `/usr/local/bin/plantuml`.
 
 ## Installation
 
-`pip3 install mkdocs-build-plantuml-plugin`
+```shell
+pip3 install mkdocs-build-plantuml-plugin
+```
 
 ## Usage
 
@@ -93,11 +107,11 @@ Inside your `index.md` or any other Markdown file you can then reference any cre
 ![file1](diagrams/out/subdir1/file1.svg)
 ```
 
-## Dark Mode Support with >=1.4 (prefers-color-scheme)
+## Dark Mode Support
 
-Since Version 1.4 this plugin can support dark mode when rendering with `server`.
+Since Version 1.4 this plugin can support dark mode when rendering with `server` (prefers-color-scheme).
 
-**Note: Not in local mode, only server rendering mode**
+**Note**: Not in local mode, only server rendering mode
 
 1. Grab a general (ie. for [Material Theme](https://squidfunk.github.io/mkdocs-material/)) dark mode support css file (i.e. from [henrywhitaker3/mkdocs-material-dark-theme](https://github.com/henrywhitaker3/mkdocs-material-dark-theme)) for your theme
 1. Enable theme support in this plugin:
@@ -122,5 +136,9 @@ You can find an example in the [example folder](./example/)
 
 ## Known restrictions
 
-- If you use `!include`s and the `render: "server"` option, this plugin merges those files manually. If there are any issues or side effects because of that, please open a ticket.
+- If you use `!include` and the `render: "server"` option, this plugin merges those files manually. If there are any issues or side effects because of that, please open a ticket.
 - Dark mode / theme support is currently only available in server rendering mode.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
