@@ -7,9 +7,12 @@ with open("README.md", "r") as f:
     long_description = f.read()
 
 
+with open('VERSION', 'r') as f:
+    __version__ = f.read().strip()
+
 setup(
     name="mkdocs-build-plantuml-plugin",
-    version="1.9.0",
+    version=__version__,
     description="An MkDocs plugin to call plantuml locally or remote",
     long_description=long_description,
     long_description_content_type="text/markdown",

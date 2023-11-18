@@ -11,8 +11,7 @@ permissions:
 jobs:
   build-python-package:
     name: Build distribution packages
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest    
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
@@ -29,7 +28,7 @@ jobs:
         with:
           name: python-package-distributions
           path: dist/
-    
+
   publish-to-pypi:
     name: Publish Python distribution package to PyPI
     if: ${{ github.repository == 'quantorconsulting/mkdocs_build_plantuml' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') }}
@@ -40,8 +39,7 @@ jobs:
       name: pipy
       url: https://pypi.org/p/mkdocs-build-plantuml-plugin
     permissions:
-      id-token: write
-    
+      id-token: write    
     steps:
       - name: Download all the dists
         uses: actions/download-artifact@v3
@@ -50,3 +48,19 @@ jobs:
           path: dist/
       - name: Publish distribution packages to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+
+  add-git-tag:
+    name: Add version tag to repository
+    needs: 
+      - publish-to-pypi
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get version from VERSION file
+        id: get_version
+        run: |
+          echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.get_version.outputs.version }}
+          git push origin ${{ steps.get_version.outputs.version }}
