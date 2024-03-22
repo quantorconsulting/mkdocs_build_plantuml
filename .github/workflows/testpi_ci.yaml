@@ -28,14 +28,14 @@ jobs:
           name: python-package-distributions
           path: dist/
 
-  publish-to-pypi:
-    name: Publish Python distribution package to PyPI
-    if: ${{ github.repository == 'quantorconsulting/mkdocs_build_plantuml' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') }}
+  publish-to-testpi:
+    name: Publish Python distribution package to TestPI
+    if: ${{ github.ref == 'refs/heads/test' }}
     needs: 
       - build-python-package
     runs-on: ubuntu-latest
     environment:
-      name: pipy
+      name: testpy
       url: https://testpi.org/p/mkdocs-build-plantuml-plugin
     permissions:
       id-token: write    
@@ -45,13 +45,13 @@ jobs:
         with:
           name: python-package-distributions
           path: dist/
-      - name: Publish distribution packages to PyPI
+      - name: Publish distribution packages to TestPI
         uses: pypa/gh-action-pypi-publish@release/v1
 
   add-git-tag:
     name: Add version tag to repository
     needs: 
-      - publish-to-pypi
+      - publish-to-testpi
     runs-on: ubuntu-latest    
     steps:
       - uses: actions/checkout@v4
