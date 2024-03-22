@@ -2,8 +2,7 @@ name: Publish python package to PyPi
 on:
   push:
     branches:
-      - master
-      - main
+      - test
 
 permissions:
   contents: write
@@ -37,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pipy
-      url: https://pypi.org/p/mkdocs-build-plantuml-plugin
+      url: https://testpi.org/p/mkdocs-build-plantuml-plugin
     permissions:
       id-token: write    
     steps:
