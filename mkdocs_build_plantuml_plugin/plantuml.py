@@ -171,6 +171,7 @@ class BuildPlantumlPlugin(BasePlugin[BuildPlantumlPluginConfig]):
         diagram.inc_time = 0
 
     def _readFile(self, diagram, dark_mode):
+        print(f"Reading {diagram.src_file}")
         temp_file = self._readFileRecursively(
             diagram.src_file, "", diagram, diagram.directory, dark_mode
         )
