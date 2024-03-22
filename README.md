@@ -36,7 +36,7 @@ You need to have installed:
 - [MkDocs](https://www.mkdocs.org)
 - Java for Plantuml (If running locally)
 - [Plantuml](https://plantuml.com) (if running locally)
-- This plugin (needs httplib2 for server rendering)
+- This plugin (needs [httplib2](https://pypi.org/project/httplib2/) for server rendering)
 
 On macOS you can install plantuml with homebrew which puts a plantuml executable in `/usr/local/bin/plantuml`.
 
