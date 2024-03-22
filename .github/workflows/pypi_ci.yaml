@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pipy
-      url: https://pypi.org/p/mkdocs-build-plantuml-plugin
+      url: https://testpi.org/p/mkdocs-build-plantuml-plugin
     permissions:
       id-token: write    
     steps:
