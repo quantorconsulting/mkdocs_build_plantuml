@@ -32,7 +32,7 @@ this plugin does _not_ meet your requirements. Please check out [plantuml-markdo
 
 You need to have installed:
 
-- Python3
+- Python3 (>= 3.12)
 - [MkDocs](https://www.mkdocs.org)
 - Java for Plantuml (If running locally)
 - [Plantuml](https://plantuml.com) (if running locally)

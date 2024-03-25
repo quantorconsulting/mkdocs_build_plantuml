@@ -21,7 +21,7 @@ setup(
     author="Christoph Galler",
     author_email="galler@quantor.consulting",
     license="MIT",
-    python_requires=">=3.2",
+    python_requires=">=3.12",
     install_requires=["mkdocs>=1.0.4", "httplib2"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
